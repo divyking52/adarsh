@@ -246,184 +246,131 @@
       transform: none;
     }
 
-    /* —— Hero (horizon line + vertical brand spine) —— */
+    /* —— Hero (left copy + right image container) —— */
     #home {
       position: relative;
       min-height: 100vh;
       min-height: 100dvh;
       overflow: hidden;
-      background: #071018;
+      background:
+        linear-gradient(105deg, rgba(7, 16, 24, 0.88) 0%, rgba(7, 16, 24, 0.72) 42%, rgba(7, 16, 24, 0.55) 100%),
+        url("https://cdn.storebox.ai/media/f2b7587c-8821-4d8b-a3a9-b53e761f5395/c48c45b5-d5c8-4a01-ae68-f2f2ff0e0de5/photo-1473341304170-971dccb5ac1e-462ff5ae.jpg") center/cover no-repeat;
       color: var(--white);
     }
 
-    .hero-photo {
-      position: absolute;
-      inset: 0;
-      z-index: 1;
-      overflow: hidden;
-      will-change: transform, opacity;
-    }
-
-    .hero-photo img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center 35%;
-      transform-origin: center center;
-      will-change: transform;
-      filter: saturate(0.85) contrast(1.05);
-    }
-
-    .hero-photo::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        linear-gradient(90deg, rgba(7, 16, 24, 0.88) 0%, rgba(7, 16, 24, 0.55) 28%, rgba(7, 16, 24, 0.2) 55%, rgba(7, 16, 24, 0.45) 100%),
-        linear-gradient(180deg, rgba(7, 16, 24, 0.5) 0%, transparent 28%, rgba(7, 16, 24, 0.35) 70%, rgba(7, 16, 24, 0.92) 100%);
-    }
-
-    .hero-horizon {
-      position: absolute;
-      left: 0;
-      right: 0;
-      top: 58%;
-      z-index: 2;
-      height: 1px;
-      background: rgba(255, 255, 255, 0.2);
-      pointer-events: none;
-      transform-origin: left center;
-    }
-
-    .hero-horizon::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 0;
-      height: 100%;
-      width: 28%;
-      background: var(--accent);
-    }
-
-    .hero-layout {
+    .hero-shell {
       position: relative;
-      z-index: 3;
+      z-index: 2;
+      width: min(1200px, 92%);
+      margin: 0 auto;
       min-height: 100vh;
       min-height: 100dvh;
       display: grid;
-      grid-template-columns: auto 1fr;
-      gap: clamp(1.25rem, 4vw, 3.5rem);
-      width: min(1200px, 92%);
-      margin: 0 auto;
-      padding: calc(var(--header-h) + 1.5rem) 0 4.5rem;
-      align-items: stretch;
-    }
-
-    .hero-spine {
-      display: flex;
+      grid-template-columns: minmax(240px, 0.85fr) minmax(0, 1.35fr);
+      gap: clamp(1.25rem, 3vw, 2.75rem);
       align-items: center;
-      justify-content: center;
-      padding-top: 1rem;
-      will-change: transform, opacity;
+      padding: calc(var(--header-h) + 1.5rem) 0 2rem;
+      box-sizing: border-box;
     }
 
-    .hero-spine-brand {
-      writing-mode: vertical-rl;
-      transform: rotate(180deg);
-      font-family: var(--font);
-      font-size: clamp(2.8rem, 6.5vw, 5.2rem);
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      line-height: 1;
-      text-transform: uppercase;
-      color: var(--white);
-      white-space: nowrap;
-    }
-
-    .hero-main {
+    .hero-intro {
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      gap: 1.25rem;
       min-width: 0;
-      padding: 1rem 0 0.5rem;
-      will-change: transform, opacity;
+      height: 100%;
+      max-height: 520px;
     }
 
-    .hero-main-top {
-      max-width: 34rem;
-      margin-top: clamp(1rem, 8vh, 5rem);
+    .hero-intro-top {
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
     }
 
-    .hero-kicker {
+    .hero-eyebrow {
+      margin: 0;
       font-size: 0.72rem;
       font-weight: 700;
       letter-spacing: 0.28em;
       text-transform: uppercase;
       color: var(--accent);
-      margin-bottom: 1rem;
     }
 
-    .hero-title-block {
-      margin-bottom: 1.35rem;
+    .hero-brand {
+      margin: 0;
+      font-family: var(--font);
+      font-size: clamp(3rem, 7vw, 5.4rem);
+      font-weight: 700;
+      line-height: 0.9;
+      letter-spacing: -0.03em;
+      color: var(--white);
     }
 
-    .hero-title-block .industries {
+    .hero-brand span {
       display: block;
       font-family: var(--font-sans);
-      font-size: clamp(1.05rem, 2vw, 1.35rem);
+      font-size: clamp(0.85rem, 1.5vw, 1.05rem);
       font-weight: 700;
-      letter-spacing: 0.36em;
+      letter-spacing: 0.42em;
       text-transform: uppercase;
-      color: rgba(255, 255, 255, 0.92);
-      margin-bottom: 0.85rem;
+      color: rgba(255, 255, 255, 0.78);
+      margin-top: 0.85rem;
     }
 
-    .hero-headline {
+    .hero-tagline {
+      margin: 0;
+      font-size: 1.02rem;
+      line-height: 1.6;
+      color: rgba(255, 255, 255, 0.7);
+      max-width: 28ch;
+    }
+
+    .hero-slide-copy {
+      padding-top: 0.45rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.14);
+      min-width: 0;
+    }
+
+    .hero-slide-label {
+      margin: 0 0 0.35rem;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--blue-light);
+    }
+
+    .hero-slide-note {
+      margin: 0;
       font-family: var(--font);
-      font-size: clamp(1.55rem, 3.2vw, 2.35rem);
-      font-weight: 400;
-      line-height: 1.25;
+      font-size: clamp(1.15rem, 2.2vw, 1.45rem);
+      line-height: 1.3;
       color: var(--white);
-      max-width: 14ch;
-      margin: 0;
-    }
-
-    .hero-main-bottom {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: flex-end;
-      justify-content: space-between;
-      gap: 1.5rem 2rem;
-      padding-top: 2rem;
-    }
-
-    .hero-support {
-      font-size: 1rem;
-      color: rgba(255, 255, 255, 0.72);
-      line-height: 1.7;
-      max-width: 28rem;
-      margin: 0;
+      max-width: 16ch;
     }
 
     .hero-cta-group {
       display: flex;
       flex-wrap: wrap;
-      align-items: center;
-      gap: 0.85rem 1rem;
+      gap: 0.65rem;
+      margin-top: 0.25rem;
     }
 
     .hero-cta {
       display: inline-flex;
       align-items: center;
+      justify-content: center;
       background: var(--blue);
       color: var(--white);
-      padding: 0.85rem 1.35rem;
-      font-size: 0.78rem;
+      padding: 0.85rem 1.25rem;
+      font-size: 0.72rem;
       font-weight: 700;
       letter-spacing: 0.12em;
       text-transform: uppercase;
       border: 1px solid transparent;
-      transition: background 0.25s ease, transform 0.25s ease;
+      transition: background 0.25s ease, transform 0.25s ease, border-color 0.25s ease, color 0.25s ease;
     }
 
     .hero-cta:hover {
@@ -434,7 +381,7 @@
     .hero-cta-ghost {
       background: transparent;
       border-color: rgba(255, 255, 255, 0.35);
-      color: rgba(255, 255, 255, 0.9);
+      color: rgba(255, 255, 255, 0.92);
     }
 
     .hero-cta-ghost:hover {
@@ -442,101 +389,165 @@
       border-color: rgba(255, 255, 255, 0.55);
     }
 
-    .scroll-cue {
-      position: absolute;
-      bottom: 1.4rem;
-      right: max(4%, calc((100% - 1200px) / 2));
-      z-index: 4;
+    .hero-controls {
       display: flex;
-      flex-direction: column;
       align-items: center;
-      gap: 0.45rem;
-      color: rgba(255, 255, 255, 0.5);
-      font-size: 0.65rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      font-weight: 700;
+      gap: 0.65rem;
+      padding-top: 0.85rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
     }
 
-    .scroll-cue-bar {
-      width: 1px;
+    .hero-nav {
+      width: 42px;
       height: 42px;
-      background: rgba(255, 255, 255, 0.25);
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--white);
+      cursor: pointer;
+      display: grid;
+      place-items: center;
+      font-size: 1.15rem;
+      line-height: 1;
+      transition: background 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+    }
+
+    .hero-nav:hover {
+      background: rgba(201, 162, 39, 0.2);
+      border-color: var(--accent);
+      transform: translateY(-1px);
+    }
+
+    .hero-dots {
+      display: flex;
+      gap: 0.4rem;
+      align-items: center;
+      flex: 1;
+    }
+
+    .hero-dot {
+      width: 28px;
+      height: 3px;
+      padding: 0;
+      border: 0;
+      background: rgba(255, 255, 255, 0.22);
+      cursor: pointer;
       position: relative;
       overflow: hidden;
     }
 
-    .scroll-cue-bar::after {
+    .hero-dot.is-active {
+      background: rgba(255, 255, 255, 0.18);
+    }
+
+    .hero-dot.is-active::after {
       content: "";
       position: absolute;
-      left: 0;
-      right: 0;
-      height: 40%;
+      inset: 0;
       background: var(--accent);
-      animation: scrollDrop 1.8s var(--ease) infinite;
+      transform-origin: left center;
+      animation: heroDotFill 5.5s linear forwards;
     }
 
-    @keyframes scrollDrop {
-      0% { top: -40%; }
-      100% { top: 100%; }
-    }
-
-    /* Entrance */
-    .js .hero-photo {
-      opacity: 0;
-      transform: scale(1.08);
-    }
-    .js .hero-horizon {
-      transform: scaleX(0);
-    }
-    .js .hero-spine,
-    .js .hero-main-top,
-    .js .hero-main-bottom,
-    .js .scroll-cue {
-      opacity: 0;
-    }
-
-    .js #home.is-ready .hero-photo {
-      animation: heroPhotoIn 1.35s var(--ease) forwards;
-    }
-    .js #home.is-ready .hero-horizon {
-      animation: heroHorizon 1s var(--ease) 0.35s forwards;
-    }
-    .js #home.is-ready .hero-spine {
-      animation: heroSpineIn 0.95s var(--ease) 0.4s forwards;
-    }
-    .js #home.is-ready .hero-main-top {
-      animation: heroRise 0.9s var(--ease) 0.55s forwards;
-    }
-    .js #home.is-ready .hero-main-bottom {
-      animation: heroRise 0.9s var(--ease) 0.72s forwards;
-    }
-    .js #home.is-ready .scroll-cue {
-      animation: heroFade 0.7s ease 1s forwards;
-    }
-
-    @keyframes heroPhotoIn {
-      to { opacity: 1; transform: scale(1); }
-    }
-
-    @keyframes heroHorizon {
+    @keyframes heroDotFill {
       from { transform: scaleX(0); }
       to { transform: scaleX(1); }
     }
 
-    @keyframes heroSpineIn {
-      from { opacity: 0; transform: translateY(40px); }
-      to { opacity: 1; transform: translateY(0); }
+    .hero-counter {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      color: rgba(255, 255, 255, 0.6);
+      white-space: nowrap;
+    }
+
+    .hero-counter span {
+      color: var(--accent);
+    }
+
+    .hero-showcase {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+      width: 100%;
+      height: clamp(260px, 42vw, 460px);
+      background: #eef2f6;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+      overflow: hidden;
+    }
+
+    .hero-stage {
+      position: relative;
+      z-index: 1;
+      overflow: hidden;
+      flex: 1 1 auto;
+      min-height: 0;
+      width: 100%;
+      background: #eef2f6;
+    }
+
+    .hero-slides {
+      position: absolute;
+      inset: 0;
+    }
+
+    .hero-slide {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      pointer-events: none;
+      z-index: 1;
+      transition: opacity 0.7s var(--ease);
+    }
+
+    .hero-slide.is-active {
+      opacity: 1;
+      pointer-events: auto;
+      z-index: 3;
+    }
+
+    .hero-slide.is-exit {
+      opacity: 0;
+      z-index: 2;
+    }
+
+    .hero-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
+      display: block;
+    }
+
+    .hero-veil,
+    .hero-film {
+      display: none;
+    }
+
+    /* Entrance */
+    .js .hero-intro-top,
+    .js .hero-controls,
+    .js .hero-showcase {
+      opacity: 0;
+      transform: translateY(22px);
+    }
+
+    .js #home.is-ready .hero-intro-top {
+      animation: heroRise 0.85s var(--ease) 0.12s forwards;
+    }
+    .js #home.is-ready .hero-controls {
+      animation: heroRise 0.85s var(--ease) 0.3s forwards;
+    }
+    .js #home.is-ready .hero-showcase {
+      animation: heroRise 0.95s var(--ease) 0.2s forwards;
     }
 
     @keyframes heroRise {
-      from { opacity: 0; transform: translateY(28px); }
+      from { opacity: 0; transform: translateY(22px); }
       to { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes heroFade {
-      from { opacity: 0; }
-      to { opacity: 1; }
     }
 
     /* —— About —— */
@@ -1715,16 +1726,11 @@
         grid-template-columns: 1fr;
       }
 
-      .hero-horizon { top: 54%; }
-
-      .hero-headline { max-width: 18ch; }
-
-      .scroll-cue {
-        right: 6vw;
-        bottom: 1.15rem;
-      }
-
       .awards-grid { grid-template-columns: repeat(2, 1fr); }
+
+      .hero-showcase {
+        height: clamp(240px, 38vw, 360px);
+      }
 
       .hl-body {
         grid-template-columns: 1fr;
@@ -1779,122 +1785,65 @@
       .logo span { font-size: 0.9rem; }
       .logo img { height: 32px; }
 
-      /* Hero: full-bleed viewport */
+      /* Hero: stacked copy + image container */
       #home {
-        min-height: 100vh;
-        min-height: 100dvh;
+        min-height: auto;
         width: 100%;
       }
 
-      .hero-photo {
-        inset: 0;
-      }
-
-      .hero-photo img {
-        object-position: center 28%;
-      }
-
-      .hero-photo::after {
-        background:
-          linear-gradient(180deg, rgba(7, 16, 24, 0.55) 0%, rgba(7, 16, 24, 0.22) 32%, rgba(7, 16, 24, 0.45) 62%, rgba(7, 16, 24, 0.94) 100%),
-          linear-gradient(90deg, rgba(7, 16, 24, 0.55) 0%, transparent 55%);
-      }
-
-      .hero-layout {
+      .hero-shell {
+        width: 94%;
         grid-template-columns: 1fr;
-        width: 100%;
-        max-width: none;
-        min-height: 100vh;
-        min-height: 100dvh;
-        margin: 0;
-        padding: calc(var(--header-h) + 1.15rem) 5vw 1.75rem;
-        gap: 0.65rem;
-        box-sizing: border-box;
+        gap: 1.15rem;
+        min-height: auto;
+        padding: calc(var(--header-h) + 1.1rem) 0 1.5rem;
+        align-items: start;
       }
 
-      .hero-spine {
-        justify-content: flex-start;
-        padding-top: 0;
-      }
-
-      .hero-spine-brand {
-        writing-mode: horizontal-tb;
-        transform: none;
-        font-size: clamp(2.6rem, 14vw, 3.4rem);
-        letter-spacing: -0.02em;
-      }
-
-      .hero-main {
-        padding: 0;
-        gap: 0;
-        flex: 1;
-        justify-content: space-between;
-        min-height: 0;
-      }
-
-      .hero-main-top {
-        margin-top: 0.35rem;
-        max-width: none;
-      }
-
-      .hero-kicker { margin-bottom: 0.55rem; }
-
-      .hero-title-block { margin-bottom: 0.65rem; }
-
-      .hero-title-block .industries {
-        font-size: 0.95rem;
-        letter-spacing: 0.28em;
-        margin-bottom: 0.55rem;
-      }
-
-      .hero-headline {
-        font-size: clamp(1.25rem, 5.2vw, 1.55rem);
-        max-width: 16ch;
-      }
-
-      .hero-support {
-        font-size: 0.92rem;
-        line-height: 1.55;
-        max-width: 28ch;
-        margin: 0;
-      }
-
-      .hero-main-bottom {
-        flex-direction: column;
-        align-items: stretch;
+      .hero-intro {
+        max-height: none;
+        height: auto;
         gap: 1rem;
-        padding-top: 0;
-        margin-top: auto;
       }
 
-      .hero-cta-group {
-        flex-direction: row;
-        flex-wrap: nowrap;
-        align-items: stretch;
-        gap: 0.55rem;
+      .hero-intro-top {
+        gap: 0.7rem;
+      }
+
+      .hero-brand {
+        font-size: clamp(2.7rem, 14vw, 3.5rem);
+      }
+
+      .hero-brand span {
+        letter-spacing: 0.28em;
+        font-size: 0.82rem;
+        margin-top: 0.55rem;
+      }
+
+      .hero-tagline {
+        font-size: 0.92rem;
+        max-width: none;
+      }
+
+      .hero-slide-note {
+        max-width: none;
+        font-size: 1.1rem;
       }
 
       .hero-cta {
-        justify-content: center;
         flex: 1 1 0;
-        padding: 0.85rem 0.75rem;
-        font-size: 0.68rem;
+        padding: 0.8rem 0.65rem;
+        font-size: 0.66rem;
       }
 
-      .hero-horizon {
-        top: auto;
-        bottom: 38%;
-        left: 0;
-        right: 0;
+      .hero-nav {
+        width: 36px;
+        height: 36px;
       }
 
-      .scroll-cue {
-        display: flex;
-        right: 5vw;
-        bottom: 1.1rem;
+      .hero-showcase {
+        height: clamp(180px, 52vw, 240px);
       }
-
-      .scroll-cue-bar { height: 28px; }
 
       /* Global section density */
       #about {
@@ -2418,12 +2367,20 @@
       .js .reveal,
       .js .stagger-child,
       .js .journey-stop,
-      .js .offer-card {
+      .js .offer-card,
+      .js .hero-intro-top,
+      .js .hero-controls,
+      .js .hero-showcase {
         opacity: 1;
         transform: none;
       }
 
       .offer-rail-hint span { animation: none; }
+      .hero-dot.is-active::after,
+      .hero-thumb.is-active::after {
+        animation: none;
+        transform: scaleX(1);
+      }
     }
   </style>
 </head>
@@ -2461,41 +2418,56 @@
   <main>
     <!-- 1. HERO -->
     <section id="home" data-section="home" aria-label="Welcome">
-      <div class="hero-photo" id="heroBg">
-        <img
-          id="heroMediaImg"
-          src="https://cdn.storebox.ai/media/f2b7587c-8821-4d8b-a3a9-b53e761f5395/c48c45b5-d5c8-4a01-ae68-f2f2ff0e0de5/photo-1473341304170-971dccb5ac1e-462ff5ae.jpg"
-          alt="High-voltage power lines against the sky"
-        >
-      </div>
-      <div class="hero-horizon" aria-hidden="true"></div>
+      <div class="hero-shell" id="heroContent">
+        <div class="hero-intro">
+          <div class="hero-intro-top">
+            <p class="hero-eyebrow">Welcome</p>
+            <h1 class="hero-brand">Adarsh<span>Industries</span></h1>
+            <p class="hero-tagline">One stop shop for all the industrial electrical appliances.</p>
 
-      <div class="hero-layout" id="heroContent">
-        <div class="hero-spine">
-          <h1 class="hero-spine-brand">Adarsh</h1>
-        </div>
-        <div class="hero-main">
-          <div class="hero-main-top">
-            <p class="hero-kicker">Welcome</p>
-            <div class="hero-title-block">
-              <span class="industries">Industries</span>
-              <p class="hero-headline">A Legacy of Innovation and Excellence</p>
+            <div class="hero-slide-copy" aria-live="polite">
+              <p class="hero-slide-label" id="heroSlideLabel">Quality Solutions</p>
+              <p class="hero-slide-note" id="heroSlideNote">Electrical power, switchgear, wiring &amp; transformers</p>
             </div>
-          </div>
-          <div class="hero-main-bottom">
-            <p class="hero-support">Adarsh Industries is a one stop shop for all the industrial electrical appliances.</p>
+
             <div class="hero-cta-group">
               <a href="#products" class="hero-cta">Explore products</a>
               <a href="#about" class="hero-cta hero-cta-ghost">Our story</a>
             </div>
           </div>
+
+          <div class="hero-controls" role="group" aria-label="Carousel controls">
+            <button type="button" class="hero-nav hero-nav-prev" id="heroPrev" aria-label="Previous slide">‹</button>
+            <div class="hero-dots" id="heroDots" role="tablist" aria-label="Slides">
+              <button type="button" class="hero-dot is-active" role="tab" aria-selected="true" data-slide="0" aria-label="Quality Solutions"></button>
+              <button type="button" class="hero-dot" role="tab" aria-selected="false" data-slide="1" aria-label="Industrial Cooling"></button>
+              <button type="button" class="hero-dot" role="tab" aria-selected="false" data-slide="2" aria-label="Solar Power"></button>
+              <button type="button" class="hero-dot" role="tab" aria-selected="false" data-slide="3" aria-label="Water Pumps"></button>
+            </div>
+            <button type="button" class="hero-nav hero-nav-next" id="heroNext" aria-label="Next slide">›</button>
+            <div class="hero-counter" id="heroCounter" aria-live="polite"><span>01</span> / 04</div>
+          </div>
+        </div>
+
+        <div class="hero-showcase">
+          <div class="hero-stage" id="heroStage" aria-roledescription="carousel" aria-label="Featured product showcases">
+            <div class="hero-slides" id="heroSlides">
+              <figure class="hero-slide is-active" data-label="Quality Solutions" data-note="Electrical power, switchgear, wiring &amp; transformers">
+                <img src="https://admin.storebox.ai/media/f2b7587c-8821-4d8b-a3a9-b53e761f5395/3341d9f6-dd89-42e9-958f-6649ed43ac8f/quality-solutions.jpg" alt="Industry leaders in quality solutions — UPS, generators, switchgear, lighting and cables" loading="eager">
+              </figure>
+              <figure class="hero-slide" data-label="Industrial Cooling" data-note="Reliable industrial cooling systems for demanding sites">
+                <img src="https://admin.storebox.ai/media/f2b7587c-8821-4d8b-a3a9-b53e761f5395/e19af89e-9c5b-4d4e-8d86-2906267fa96d/industrial-cooling.jpg" alt="Reliable industrial cooling system product showcase" loading="lazy">
+              </figure>
+              <figure class="hero-slide" data-label="Solar Power" data-note="Panels, inverters and solar infrastructure">
+                <img src="https://admin.storebox.ai/media/f2b7587c-8821-4d8b-a3a9-b53e761f5395/3254fe84-2ee2-4da5-8e24-3aecf41ee7da/solar-power.jpg" alt="Powering tomorrow with solar — panels, inverters and farm array" loading="lazy">
+              </figure>
+              <figure class="hero-slide" data-label="Water Pumps" data-note="Industrial and commercial pump solutions">
+                <img src="https://admin.storebox.ai/media/f2b7587c-8821-4d8b-a3a9-b53e761f5395/1ab0f7e7-00f8-46a7-ae3a-da72529808ff/water-pumps.jpg" alt="Industrial water pump showcase" loading="lazy">
+              </figure>
+            </div>
+          </div>
         </div>
       </div>
-
-      <a href="#about" class="scroll-cue" aria-label="Scroll to explore">
-        <span class="scroll-cue-bar" aria-hidden="true"></span>
-        <span>Scroll</span>
-      </a>
     </section>
 
     <!-- 2. ABOUT -->
@@ -3199,8 +3171,7 @@
 
       var header = document.getElementById("siteHeader");
       var heroSection = document.getElementById("home");
-      var heroBg = document.getElementById("heroBg");
-      var heroMediaImg = document.getElementById("heroMediaImg");
+      var heroStage = document.getElementById("heroStage");
       var heroContent = document.getElementById("heroContent");
       var backTop = document.getElementById("backTop");
 
@@ -3209,6 +3180,157 @@
           heroSection.classList.add("is-ready");
         });
       }
+
+      /* Hero product carousel */
+      (function initHeroCarousel() {
+        var slides = document.querySelectorAll("#heroSlides .hero-slide");
+        var dots = document.querySelectorAll(".hero-dot");
+        var prevBtn = document.getElementById("heroPrev");
+        var nextBtn = document.getElementById("heroNext");
+        var counter = document.getElementById("heroCounter");
+        var slideLabel = document.getElementById("heroSlideLabel");
+        var slideNote = document.getElementById("heroSlideNote");
+        var prefersReduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        if (!slides.length) return;
+
+        var index = 0;
+        var total = slides.length;
+        var timer = null;
+        var locked = false;
+        var paused = false;
+        var interval = 4500;
+
+        function pad(n) {
+          return (n < 10 ? "0" : "") + n;
+        }
+
+        function syncCopy(i) {
+          var slide = slides[i];
+          if (!slide) return;
+          if (slideLabel) slideLabel.textContent = slide.getAttribute("data-label") || "";
+          if (slideNote) slideNote.textContent = slide.getAttribute("data-note") || "";
+        }
+
+        function markDots() {
+          dots.forEach(function (el, i) {
+            var on = i === index;
+            el.classList.remove("is-active");
+            el.setAttribute("aria-selected", on ? "true" : "false");
+            if (on) {
+              void el.offsetWidth;
+              el.classList.add("is-active");
+            }
+          });
+        }
+
+        function goTo(nextIndex) {
+          nextIndex = (nextIndex + total) % total;
+          if (locked || nextIndex === index) return;
+          locked = true;
+          var prev = index;
+          index = nextIndex;
+
+          slides[prev].classList.remove("is-active");
+          slides[prev].classList.add("is-exit");
+          slides[index].classList.add("is-active");
+          markDots();
+
+          if (counter) {
+            counter.innerHTML = "<span>" + pad(index + 1) + "</span> / " + pad(total);
+          }
+          syncCopy(index);
+
+          window.setTimeout(function () {
+            slides[prev].classList.remove("is-exit");
+            locked = false;
+          }, 750);
+        }
+
+        function next() { goTo(index + 1); }
+        function prev() { goTo(index - 1); }
+
+        function stopAuto() {
+          if (timer) {
+            window.clearTimeout(timer);
+            timer = null;
+          }
+        }
+
+        function startAuto() {
+          stopAuto();
+          if (prefersReduce || paused) return;
+          timer = window.setTimeout(function tick() {
+            next();
+            if (!paused && !prefersReduce) {
+              timer = window.setTimeout(tick, interval);
+            }
+          }, interval);
+        }
+
+        function userJump(i) {
+          goTo(i);
+          startAuto();
+        }
+
+        if (nextBtn) {
+          nextBtn.addEventListener("click", function () { userJump(index + 1); });
+        }
+        if (prevBtn) {
+          prevBtn.addEventListener("click", function () { userJump(index - 1); });
+        }
+
+        dots.forEach(function (el) {
+          el.addEventListener("click", function () {
+            var i = parseInt(el.getAttribute("data-slide"), 10);
+            if (!isNaN(i)) userJump(i);
+          });
+        });
+
+        /* Pause only while pointer is on the image box, not the whole hero */
+        var showcase = document.querySelector(".hero-showcase");
+        if (showcase) {
+          showcase.addEventListener("mouseenter", function () {
+            paused = true;
+            stopAuto();
+          });
+          showcase.addEventListener("mouseleave", function () {
+            paused = false;
+            startAuto();
+          });
+        }
+
+        document.addEventListener("keydown", function (e) {
+          if (!heroSection) return;
+          var rect = heroSection.getBoundingClientRect();
+          if (rect.bottom < 0 || rect.top > window.innerHeight) return;
+          if (e.key === "ArrowRight") userJump(index + 1);
+          if (e.key === "ArrowLeft") userJump(index - 1);
+        });
+
+        var touchX = null;
+        if (heroStage) {
+          heroStage.addEventListener("touchstart", function (e) {
+            touchX = e.changedTouches[0].clientX;
+          }, { passive: true });
+          heroStage.addEventListener("touchend", function (e) {
+            if (touchX == null) return;
+            var dx = e.changedTouches[0].clientX - touchX;
+            touchX = null;
+            if (Math.abs(dx) < 40) return;
+            userJump(dx < 0 ? index + 1 : index - 1);
+          }, { passive: true });
+        }
+
+        document.addEventListener("visibilitychange", function () {
+          if (document.hidden) {
+            stopAuto();
+          } else if (!paused) {
+            startAuto();
+          }
+        });
+
+        startAuto();
+      })();
       var navToggle = document.getElementById("navToggle");
       var navMobile = document.getElementById("navMobile");
       var offerRailWrap = document.getElementById("offerRailWrap");
@@ -3661,11 +3783,8 @@
           var heroH = heroSection.offsetHeight || window.innerHeight;
           var progress = Math.min(Math.max(y / heroH, 0), 1);
 
-          if (heroMediaImg) {
-            heroMediaImg.style.transform = "scale(" + (1 + progress * 0.2) + ") translate3d(0, " + progress * 36 + "px, 0)";
-          }
-          if (heroBg) {
-            heroBg.style.opacity = String(Math.max(1 - progress * 0.45, 0.4));
+          if (heroStage) {
+            heroStage.style.opacity = String(Math.max(1 - progress * 0.45, 0.4));
           }
           heroContent.style.transform = "translate3d(0, " + progress * -70 + "px, 0)";
           heroContent.style.opacity = String(Math.max(1 - progress * 1.15, 0));
