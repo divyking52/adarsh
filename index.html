@@ -246,116 +246,200 @@
       transform: none;
     }
 
-    /* —— Hero (left copy + right image container) —— */
+    /* —— Hero (full-bleed carousel, no stretch) —— */
     #home {
       position: relative;
       min-height: 100vh;
       min-height: 100dvh;
       overflow: hidden;
-      background:
-        linear-gradient(105deg, rgba(7, 16, 24, 0.88) 0%, rgba(7, 16, 24, 0.72) 42%, rgba(7, 16, 24, 0.55) 100%),
-        url("https://cdn.storebox.ai/media/f2b7587c-8821-4d8b-a3a9-b53e761f5395/c48c45b5-d5c8-4a01-ae68-f2f2ff0e0de5/photo-1473341304170-971dccb5ac1e-462ff5ae.jpg") center/cover no-repeat;
+      background: #e8eef2;
       color: var(--white);
+    }
+
+    .hero-showcase {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+      background: #e8eef2;
+      overflow: hidden;
+    }
+
+    .hero-stage {
+      position: relative;
+      z-index: 1;
+      flex: 1 1 auto;
+      min-height: 0;
+      width: 100%;
+      overflow: hidden;
+      background: #e8eef2;
+    }
+
+    .hero-slides {
+      position: absolute;
+      inset: 0;
+    }
+
+    .hero-slide {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      z-index: 1;
+      transition: opacity 0.75s var(--ease);
+      background: #e8eef2;
+    }
+
+    .hero-slide.is-active {
+      opacity: 1;
+      pointer-events: auto;
+      z-index: 3;
+    }
+
+    .hero-slide.is-exit {
+      opacity: 0;
+      z-index: 2;
+    }
+
+    .hero-slide img {
+      width: 100%;
+      height: 100%;
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      object-position: center center;
+      display: block;
+    }
+
+    .hero-veil {
+      position: absolute;
+      inset: 0;
+      z-index: 4;
+      pointer-events: none;
+      background:
+        linear-gradient(180deg, rgba(7, 16, 24, 0.28) 0%, rgba(7, 16, 24, 0.08) 34%, rgba(7, 16, 24, 0.45) 62%, rgba(7, 16, 24, 0.88) 100%);
+    }
+
+    .hero-film {
+      display: none;
     }
 
     .hero-shell {
       position: relative;
-      z-index: 2;
-      width: min(1200px, 92%);
+      z-index: 6;
+      width: min(920px, 92%);
       margin: 0 auto;
       min-height: 100vh;
       min-height: 100dvh;
-      display: grid;
-      grid-template-columns: minmax(240px, 0.85fr) minmax(0, 1.35fr);
-      gap: clamp(1.25rem, 3vw, 2.75rem);
-      align-items: center;
-      padding: calc(var(--header-h) + 1.5rem) 0 2rem;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      padding: calc(var(--header-h) + 1rem) 0 1.75rem;
       box-sizing: border-box;
+      text-align: center;
     }
 
     .hero-intro {
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
-      gap: 1.25rem;
+      align-items: center;
+      width: 100%;
       min-width: 0;
-      height: 100%;
-      max-height: 520px;
     }
 
-    .hero-intro-top {
+    .hero-intro-main {
       display: flex;
       flex-direction: column;
-      gap: 0.9rem;
+      align-items: center;
+      width: 100%;
+      max-width: 40rem;
     }
 
-    .hero-eyebrow {
-      margin: 0;
-      font-size: 0.72rem;
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem 0.7rem;
+      margin: 0 0 1rem;
+    }
+
+    .hero-meta-year {
+      font-size: 0.68rem;
       font-weight: 700;
-      letter-spacing: 0.28em;
+      letter-spacing: 0.3em;
       text-transform: uppercase;
       color: var(--accent);
+    }
+
+    .hero-meta-sep {
+      width: 1.1rem;
+      height: 1px;
+      background: rgba(255, 255, 255, 0.4);
+    }
+
+    .hero-meta-slide {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.68);
     }
 
     .hero-brand {
       margin: 0;
       font-family: var(--font);
-      font-size: clamp(3rem, 7vw, 5.4rem);
+      font-size: clamp(3.6rem, 8vw, 6.2rem);
       font-weight: 700;
-      line-height: 0.9;
-      letter-spacing: -0.03em;
+      line-height: 0.86;
+      letter-spacing: -0.04em;
       color: var(--white);
+      text-shadow: 0 16px 48px rgba(0, 0, 0, 0.45);
     }
 
     .hero-brand span {
       display: block;
+      margin-top: 0.55rem;
       font-family: var(--font-sans);
-      font-size: clamp(0.85rem, 1.5vw, 1.05rem);
+      font-size: clamp(0.76rem, 1.15vw, 0.9rem);
       font-weight: 700;
-      letter-spacing: 0.42em;
+      letter-spacing: 0.5em;
+      text-indent: 0.5em;
       text-transform: uppercase;
-      color: rgba(255, 255, 255, 0.78);
-      margin-top: 0.85rem;
+      color: rgba(255, 255, 255, 0.72);
+      text-shadow: none;
     }
 
     .hero-tagline {
-      margin: 0;
-      font-size: 1.02rem;
-      line-height: 1.6;
-      color: rgba(255, 255, 255, 0.7);
-      max-width: 28ch;
-    }
-
-    .hero-slide-copy {
-      padding-top: 0.45rem;
-      border-top: 1px solid rgba(255, 255, 255, 0.14);
-      min-width: 0;
-    }
-
-    .hero-slide-label {
-      margin: 0 0 0.35rem;
-      font-size: 0.68rem;
-      font-weight: 700;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--blue-light);
+      margin: 1.1rem auto 0;
+      font-size: clamp(0.98rem, 1.5vw, 1.12rem);
+      line-height: 1.5;
+      color: rgba(255, 255, 255, 0.84);
+      max-width: 34ch;
     }
 
     .hero-slide-note {
-      margin: 0;
+      margin: 0.65rem auto 0;
       font-family: var(--font);
-      font-size: clamp(1.15rem, 2.2vw, 1.45rem);
-      line-height: 1.3;
-      color: var(--white);
-      max-width: 16ch;
+      font-size: clamp(1rem, 1.6vw, 1.2rem);
+      font-style: italic;
+      line-height: 1.35;
+      color: rgba(255, 255, 255, 0.58);
+      max-width: 36ch;
     }
 
     .hero-cta-group {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.65rem;
-      margin-top: 0.25rem;
+      align-items: center;
+      justify-content: center;
+      gap: 0.85rem 1.25rem;
+      margin-top: 1.45rem;
     }
 
     .hero-cta {
@@ -364,13 +448,13 @@
       justify-content: center;
       background: var(--blue);
       color: var(--white);
-      padding: 0.85rem 1.25rem;
-      font-size: 0.72rem;
+      padding: 0.95rem 1.5rem;
+      font-size: 0.68rem;
       font-weight: 700;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
       border: 1px solid transparent;
-      transition: background 0.25s ease, transform 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+      transition: background 0.25s ease, transform 0.25s ease;
     }
 
     .hero-cta:hover {
@@ -378,41 +462,51 @@
       transform: translateY(-2px);
     }
 
-    .hero-cta-ghost {
-      background: transparent;
-      border-color: rgba(255, 255, 255, 0.35);
-      color: rgba(255, 255, 255, 0.92);
+    .hero-cta-link {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.8);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.35);
+      padding-bottom: 0.2rem;
+      transition: color 0.25s ease, border-color 0.25s ease;
     }
 
-    .hero-cta-ghost:hover {
-      background: rgba(255, 255, 255, 0.08);
-      border-color: rgba(255, 255, 255, 0.55);
+    .hero-cta-link:hover {
+      color: var(--accent);
+      border-color: var(--accent);
     }
 
     .hero-controls {
       display: flex;
       align-items: center;
-      gap: 0.65rem;
-      padding-top: 0.85rem;
-      border-top: 1px solid rgba(255, 255, 255, 0.12);
+      justify-content: center;
+      gap: 0.75rem;
+      width: min(100%, 22rem);
+      margin-top: 1.35rem;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.18);
     }
 
     .hero-nav {
-      width: 42px;
-      height: 42px;
+      width: 36px;
+      height: 36px;
+      flex: 0 0 auto;
       border: 1px solid rgba(255, 255, 255, 0.28);
-      background: rgba(255, 255, 255, 0.06);
+      background: rgba(7, 16, 24, 0.32);
       color: var(--white);
       cursor: pointer;
       display: grid;
       place-items: center;
-      font-size: 1.15rem;
+      font-size: 1.1rem;
       line-height: 1;
+      backdrop-filter: blur(8px);
       transition: background 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
     }
 
     .hero-nav:hover {
-      background: rgba(201, 162, 39, 0.2);
+      background: rgba(201, 162, 39, 0.22);
       border-color: var(--accent);
       transform: translateY(-1px);
     }
@@ -421,22 +515,24 @@
       display: flex;
       gap: 0.4rem;
       align-items: center;
+      justify-content: center;
       flex: 1;
+      min-width: 0;
     }
 
     .hero-dot {
-      width: 28px;
-      height: 3px;
+      width: 26px;
+      height: 2px;
       padding: 0;
       border: 0;
-      background: rgba(255, 255, 255, 0.22);
+      background: rgba(255, 255, 255, 0.24);
       cursor: pointer;
       position: relative;
       overflow: hidden;
     }
 
     .hero-dot.is-active {
-      background: rgba(255, 255, 255, 0.18);
+      background: rgba(255, 255, 255, 0.16);
     }
 
     .hero-dot.is-active::after {
@@ -454,100 +550,48 @@
     }
 
     .hero-counter {
-      font-size: 0.72rem;
+      font-size: 0.66rem;
       font-weight: 700;
-      letter-spacing: 0.14em;
-      color: rgba(255, 255, 255, 0.6);
+      letter-spacing: 0.18em;
+      color: rgba(255, 255, 255, 0.52);
       white-space: nowrap;
+      flex: 0 0 auto;
     }
 
     .hero-counter span {
       color: var(--accent);
     }
 
-    .hero-showcase {
-      position: relative;
-      z-index: 1;
-      display: flex;
-      flex-direction: column;
-      min-width: 0;
-      width: 100%;
-      height: clamp(260px, 42vw, 460px);
-      background: #eef2f6;
-      border: 1px solid rgba(255, 255, 255, 0.14);
-      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
-      overflow: hidden;
-    }
-
-    .hero-stage {
-      position: relative;
-      z-index: 1;
-      overflow: hidden;
-      flex: 1 1 auto;
-      min-height: 0;
-      width: 100%;
-      background: #eef2f6;
-    }
-
-    .hero-slides {
-      position: absolute;
-      inset: 0;
-    }
-
-    .hero-slide {
-      position: absolute;
-      inset: 0;
-      opacity: 0;
-      pointer-events: none;
-      z-index: 1;
-      transition: opacity 0.7s var(--ease);
-    }
-
-    .hero-slide.is-active {
-      opacity: 1;
-      pointer-events: auto;
-      z-index: 3;
-    }
-
-    .hero-slide.is-exit {
-      opacity: 0;
-      z-index: 2;
-    }
-
-    .hero-slide img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center center;
-      display: block;
-    }
-
-    .hero-veil,
-    .hero-film {
-      display: none;
-    }
-
     /* Entrance */
-    .js .hero-intro-top,
+    .js .hero-intro-main,
     .js .hero-controls,
     .js .hero-showcase {
       opacity: 0;
+    }
+
+    .js .hero-intro-main,
+    .js .hero-controls {
       transform: translateY(22px);
     }
 
-    .js #home.is-ready .hero-intro-top {
-      animation: heroRise 0.85s var(--ease) 0.12s forwards;
+    .js #home.is-ready .hero-showcase {
+      animation: heroFade 1.1s var(--ease) forwards;
+    }
+    .js #home.is-ready .hero-intro-main {
+      animation: heroRise 0.85s var(--ease) 0.18s forwards;
     }
     .js #home.is-ready .hero-controls {
-      animation: heroRise 0.85s var(--ease) 0.3s forwards;
-    }
-    .js #home.is-ready .hero-showcase {
-      animation: heroRise 0.95s var(--ease) 0.2s forwards;
+      animation: heroRise 0.85s var(--ease) 0.38s forwards;
     }
 
     @keyframes heroRise {
       from { opacity: 0; transform: translateY(22px); }
       to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes heroFade {
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
 
     /* —— About —— */
@@ -1728,10 +1772,6 @@
 
       .awards-grid { grid-template-columns: repeat(2, 1fr); }
 
-      .hero-showcase {
-        height: clamp(240px, 38vw, 360px);
-      }
-
       .hl-body {
         grid-template-columns: 1fr;
         gap: 1.25rem;
@@ -1785,64 +1825,119 @@
       .logo span { font-size: 0.9rem; }
       .logo img { height: 32px; }
 
-      /* Hero: stacked copy + image container */
+      /* Hero: image at native wide ratio, copy below */
       #home {
         min-height: auto;
         width: 100%;
-      }
-
-      .hero-shell {
-        width: 94%;
-        grid-template-columns: 1fr;
-        gap: 1.15rem;
-        min-height: auto;
-        padding: calc(var(--header-h) + 1.1rem) 0 1.5rem;
-        align-items: start;
-      }
-
-      .hero-intro {
-        max-height: none;
-        height: auto;
-        gap: 1rem;
-      }
-
-      .hero-intro-top {
-        gap: 0.7rem;
-      }
-
-      .hero-brand {
-        font-size: clamp(2.7rem, 14vw, 3.5rem);
-      }
-
-      .hero-brand span {
-        letter-spacing: 0.28em;
-        font-size: 0.82rem;
-        margin-top: 0.55rem;
-      }
-
-      .hero-tagline {
-        font-size: 0.92rem;
-        max-width: none;
-      }
-
-      .hero-slide-note {
-        max-width: none;
-        font-size: 1.1rem;
-      }
-
-      .hero-cta {
-        flex: 1 1 0;
-        padding: 0.8rem 0.65rem;
-        font-size: 0.66rem;
-      }
-
-      .hero-nav {
-        width: 36px;
-        height: 36px;
+        display: flex;
+        flex-direction: column;
+        padding-top: var(--header-h);
+        background: #071018;
       }
 
       .hero-showcase {
-        height: clamp(180px, 52vw, 240px);
+        position: relative;
+        inset: auto;
+        z-index: 1;
+        width: 100%;
+        flex: 0 0 auto;
+        background: #e8eef2;
+      }
+
+      .hero-stage {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 1024 / 417;
+        flex: none;
+        min-height: 0;
+      }
+
+      .hero-slides {
+        position: absolute;
+        inset: 0;
+      }
+
+      .hero-slide {
+        background: #e8eef2;
+      }
+
+      .hero-slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        object-position: center center;
+      }
+
+      .hero-veil {
+        display: none;
+      }
+
+      .hero-shell {
+        position: relative;
+        z-index: 2;
+        width: 100%;
+        min-height: 0;
+        margin: 0;
+        padding: 1.25rem 5% 1.35rem;
+        align-items: flex-end;
+        justify-content: center;
+        background: #071018;
+      }
+
+      .hero-intro-main {
+        max-width: none;
+      }
+
+      .hero-meta {
+        margin-bottom: 0.75rem;
+      }
+
+      .hero-brand {
+        font-size: clamp(2.7rem, 13vw, 3.6rem);
+      }
+
+      .hero-brand span {
+        letter-spacing: 0.34em;
+        text-indent: 0.34em;
+        font-size: 0.7rem;
+        margin-top: 0.4rem;
+      }
+
+      .hero-tagline {
+        margin-top: 0.8rem;
+        font-size: 0.92rem;
+        max-width: 28ch;
+      }
+
+      .hero-slide-note {
+        margin-top: 0.45rem;
+        font-size: 0.98rem;
+        max-width: 30ch;
+      }
+
+      .hero-cta-group {
+        margin-top: 1.1rem;
+        gap: 0.75rem 1rem;
+      }
+
+      .hero-cta {
+        padding: 0.8rem 1.15rem;
+        font-size: 0.62rem;
+      }
+
+      .hero-controls {
+        width: min(100%, 20rem);
+        margin-top: 1rem;
+        border-top-color: rgba(255, 255, 255, 0.14);
+      }
+
+      .hero-nav {
+        width: 34px;
+        height: 34px;
+      }
+
+      .hero-dot {
+        width: 20px;
       }
 
       /* Global section density */
@@ -2368,7 +2463,7 @@
       .js .stagger-child,
       .js .journey-stop,
       .js .offer-card,
-      .js .hero-intro-top,
+      .js .hero-intro-main,
       .js .hero-controls,
       .js .hero-showcase {
         opacity: 1;
@@ -2418,21 +2513,42 @@
   <main>
     <!-- 1. HERO -->
     <section id="home" data-section="home" aria-label="Welcome">
+      <div class="hero-showcase">
+        <div class="hero-stage" id="heroStage" aria-roledescription="carousel" aria-label="Featured product showcases">
+          <div class="hero-slides" id="heroSlides">
+            <figure class="hero-slide is-active" data-label="Quality Solutions" data-note="Electrical power, switchgear, wiring &amp; transformers">
+              <img src="https://admin.storebox.ai/media/f2b7587c-8821-4d8b-a3a9-b53e761f5395/3341d9f6-dd89-42e9-958f-6649ed43ac8f/quality-solutions.jpg" alt="Industry leaders in quality solutions — UPS, generators, switchgear, lighting and cables" loading="eager">
+            </figure>
+            <figure class="hero-slide" data-label="Industrial Cooling" data-note="Reliable industrial cooling systems for demanding sites">
+              <img src="https://admin.storebox.ai/media/f2b7587c-8821-4d8b-a3a9-b53e761f5395/e19af89e-9c5b-4d4e-8d86-2906267fa96d/industrial-cooling.jpg" alt="Reliable industrial cooling system product showcase" loading="lazy">
+            </figure>
+            <figure class="hero-slide" data-label="Solar Power" data-note="Panels, inverters and solar infrastructure">
+              <img src="https://admin.storebox.ai/media/f2b7587c-8821-4d8b-a3a9-b53e761f5395/3254fe84-2ee2-4da5-8e24-3aecf41ee7da/solar-power.jpg" alt="Powering tomorrow with solar — panels, inverters and farm array" loading="lazy">
+            </figure>
+            <figure class="hero-slide" data-label="Water Pumps" data-note="Industrial and commercial pump solutions">
+              <img src="https://admin.storebox.ai/media/f2b7587c-8821-4d8b-a3a9-b53e761f5395/1ab0f7e7-00f8-46a7-ae3a-da72529808ff/water-pumps.jpg" alt="Industrial water pump showcase" loading="lazy">
+            </figure>
+          </div>
+        </div>
+        <div class="hero-veil" aria-hidden="true"></div>
+      </div>
+
       <div class="hero-shell" id="heroContent">
         <div class="hero-intro">
-          <div class="hero-intro-top">
-            <p class="hero-eyebrow">Welcome</p>
+          <div class="hero-intro-main">
+            <div class="hero-meta" aria-live="polite">
+              <span class="hero-meta-year">Est. 1990</span>
+              <span class="hero-meta-sep" aria-hidden="true"></span>
+              <span class="hero-meta-slide" id="heroSlideLabel">Quality Solutions</span>
+            </div>
+
             <h1 class="hero-brand">Adarsh<span>Industries</span></h1>
             <p class="hero-tagline">One stop shop for all the industrial electrical appliances.</p>
-
-            <div class="hero-slide-copy" aria-live="polite">
-              <p class="hero-slide-label" id="heroSlideLabel">Quality Solutions</p>
-              <p class="hero-slide-note" id="heroSlideNote">Electrical power, switchgear, wiring &amp; transformers</p>
-            </div>
+            <p class="hero-slide-note" id="heroSlideNote">Electrical power, switchgear, wiring &amp; transformers</p>
 
             <div class="hero-cta-group">
               <a href="#products" class="hero-cta">Explore products</a>
-              <a href="#about" class="hero-cta hero-cta-ghost">Our story</a>
+              <a href="#about" class="hero-cta-link">Our story</a>
             </div>
           </div>
 
@@ -2446,25 +2562,6 @@
             </div>
             <button type="button" class="hero-nav hero-nav-next" id="heroNext" aria-label="Next slide">›</button>
             <div class="hero-counter" id="heroCounter" aria-live="polite"><span>01</span> / 04</div>
-          </div>
-        </div>
-
-        <div class="hero-showcase">
-          <div class="hero-stage" id="heroStage" aria-roledescription="carousel" aria-label="Featured product showcases">
-            <div class="hero-slides" id="heroSlides">
-              <figure class="hero-slide is-active" data-label="Quality Solutions" data-note="Electrical power, switchgear, wiring &amp; transformers">
-                <img src="https://admin.storebox.ai/media/f2b7587c-8821-4d8b-a3a9-b53e761f5395/3341d9f6-dd89-42e9-958f-6649ed43ac8f/quality-solutions.jpg" alt="Industry leaders in quality solutions — UPS, generators, switchgear, lighting and cables" loading="eager">
-              </figure>
-              <figure class="hero-slide" data-label="Industrial Cooling" data-note="Reliable industrial cooling systems for demanding sites">
-                <img src="https://admin.storebox.ai/media/f2b7587c-8821-4d8b-a3a9-b53e761f5395/e19af89e-9c5b-4d4e-8d86-2906267fa96d/industrial-cooling.jpg" alt="Reliable industrial cooling system product showcase" loading="lazy">
-              </figure>
-              <figure class="hero-slide" data-label="Solar Power" data-note="Panels, inverters and solar infrastructure">
-                <img src="https://admin.storebox.ai/media/f2b7587c-8821-4d8b-a3a9-b53e761f5395/3254fe84-2ee2-4da5-8e24-3aecf41ee7da/solar-power.jpg" alt="Powering tomorrow with solar — panels, inverters and farm array" loading="lazy">
-              </figure>
-              <figure class="hero-slide" data-label="Water Pumps" data-note="Industrial and commercial pump solutions">
-                <img src="https://admin.storebox.ai/media/f2b7587c-8821-4d8b-a3a9-b53e761f5395/1ab0f7e7-00f8-46a7-ae3a-da72529808ff/water-pumps.jpg" alt="Industrial water pump showcase" loading="lazy">
-              </figure>
-            </div>
           </div>
         </div>
       </div>
@@ -3286,14 +3383,14 @@
           });
         });
 
-        /* Pause only while pointer is on the image box, not the whole hero */
-        var showcase = document.querySelector(".hero-showcase");
-        if (showcase) {
-          showcase.addEventListener("mouseenter", function () {
+        /* Pause only on controls — showcase is full-bleed */
+        var controls = document.querySelector(".hero-controls");
+        if (controls) {
+          controls.addEventListener("mouseenter", function () {
             paused = true;
             stopAuto();
           });
-          showcase.addEventListener("mouseleave", function () {
+          controls.addEventListener("mouseleave", function () {
             paused = false;
             startAuto();
           });
