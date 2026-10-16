@@ -1,0 +1,3709 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Adarsh Industries — one stop shop for industrial electrical appliances in Kanpur. DG Sets, Solar, Motors, Pumps and more.">
+  <title>Adarsh Industries | A Legacy of Innovation and Excellence</title>
+  <style>
+    :root {
+      --navy: #0c1a2e;
+      --navy-mid: #152a45;
+      --steel: #2a4058;
+      --blue: #1a6bb5;
+      --blue-light: #2d8fd9;
+      --accent: #c9a227;
+      --bg: #f4f6f8;
+      --bg-alt: #e8eef4;
+      --white: #ffffff;
+      --text: #1a2332;
+      --text-muted: #5a6a7a;
+      --border: #d0dae4;
+      --header-h: 72px;
+      --ease: cubic-bezier(0.22, 1, 0.36, 1);
+      --font: Georgia, "Times New Roman", Times, serif;
+      --font-sans: Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: var(--header-h);
+    }
+
+    body {
+      font-family: var(--font-sans);
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    img { max-width: 100%; height: auto; display: block; }
+    a { color: inherit; text-decoration: none; }
+    ul { list-style: none; }
+    button, input, textarea { font-family: inherit; }
+
+    .container {
+      width: min(1140px, 92%);
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-family: var(--font-sans);
+      font-size: 0.75rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--blue);
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+    }
+
+    .section-title {
+      font-family: var(--font);
+      font-size: clamp(1.85rem, 4vw, 2.75rem);
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+
+    .section-lead {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      max-width: 42rem;
+      line-height: 1.7;
+    }
+
+    /* —— Header —— */
+    .site-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      height: var(--header-h);
+      background: rgba(12, 26, 46, 0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      transition: background 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .site-header.scrolled {
+      background: rgba(12, 26, 46, 0.98);
+      box-shadow: 0 4px 24px rgba(0,0,0,0.25);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 100%;
+      width: min(1200px, 94%);
+      margin: 0 auto;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      color: var(--white);
+      font-family: var(--font);
+      font-size: 1.15rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    .logo img {
+      height: 42px;
+      width: auto;
+      background: var(--white);
+      border-radius: 4px;
+      padding: 4px 6px;
+    }
+
+    .nav-desktop {
+      display: flex;
+      align-items: center;
+      gap: 0.15rem;
+    }
+
+    .nav-desktop a {
+      color: rgba(255,255,255,0.78);
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      padding: 0.5rem 0.7rem;
+      position: relative;
+      transition: color 0.25s ease;
+    }
+
+    .nav-desktop a::after {
+      content: "";
+      position: absolute;
+      left: 0.7rem;
+      right: 0.7rem;
+      bottom: 0.2rem;
+      height: 2px;
+      background: var(--accent);
+      transform: scaleX(0);
+      transition: transform 0.25s var(--ease);
+    }
+
+    .nav-desktop a:hover,
+    .nav-desktop a.active {
+      color: var(--white);
+    }
+
+    .nav-desktop a.active::after,
+    .nav-desktop a:hover::after {
+      transform: scaleX(1);
+    }
+
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: 1px solid rgba(255,255,255,0.3);
+      color: var(--white);
+      width: 42px;
+      height: 42px;
+      border-radius: 4px;
+      cursor: pointer;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+    }
+
+    .nav-toggle span {
+      display: block;
+      width: 18px;
+      height: 2px;
+      background: var(--white);
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    .nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-toggle.open span:nth-child(2) { opacity: 0; }
+    .nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    .nav-mobile {
+      display: none;
+      position: absolute;
+      top: var(--header-h);
+      left: 0;
+      right: 0;
+      background: var(--navy);
+      flex-direction: column;
+      padding: 1rem 1.25rem 1.5rem;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .nav-mobile.open { display: flex; }
+
+    .nav-mobile a {
+      color: rgba(255,255,255,0.85);
+      padding: 0.85rem 0.5rem;
+      font-size: 0.95rem;
+      font-weight: 600;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .nav-mobile a.active { color: var(--accent); }
+
+    /* —— Reveal helpers (JS-enhanced) —— */
+    .js .reveal {
+      opacity: 0;
+      transition: opacity 0.8s var(--ease), transform 0.8s var(--ease);
+    }
+    .js .reveal.from-left { transform: translateX(-48px); }
+    .js .reveal.from-right { transform: translateX(48px); }
+    .js .reveal.from-bottom { transform: translateY(40px); }
+    .js .reveal.from-side-left { transform: translateX(-56px); }
+    .js .reveal.from-side-right { transform: translateX(56px); }
+    .js .reveal.scale-in { transform: scale(0.9); }
+    .js .reveal.animate-in {
+      opacity: 1;
+      transform: none;
+    }
+
+    .js .stagger-child {
+      opacity: 0;
+      transform: translateY(36px);
+      transition: opacity 0.65s var(--ease), transform 0.65s var(--ease);
+    }
+    .js .stagger-child.even {
+      transform: translateX(40px);
+    }
+    .js .stagger-child.odd {
+      transform: translateY(40px);
+    }
+    .js .products-grid.in-view .stagger-child,
+    .js .stagger-child.animate-in {
+      opacity: 1;
+      transform: none;
+    }
+
+    /* —— Hero (horizon line + vertical brand spine) —— */
+    #home {
+      position: relative;
+      min-height: 100vh;
+      min-height: 100dvh;
+      overflow: hidden;
+      background: #071018;
+      color: var(--white);
+    }
+
+    .hero-photo {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      overflow: hidden;
+      will-change: transform, opacity;
+    }
+
+    .hero-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 35%;
+      transform-origin: center center;
+      will-change: transform;
+      filter: saturate(0.85) contrast(1.05);
+    }
+
+    .hero-photo::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(7, 16, 24, 0.88) 0%, rgba(7, 16, 24, 0.55) 28%, rgba(7, 16, 24, 0.2) 55%, rgba(7, 16, 24, 0.45) 100%),
+        linear-gradient(180deg, rgba(7, 16, 24, 0.5) 0%, transparent 28%, rgba(7, 16, 24, 0.35) 70%, rgba(7, 16, 24, 0.92) 100%);
+    }
+
+    .hero-horizon {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 58%;
+      z-index: 2;
+      height: 1px;
+      background: rgba(255, 255, 255, 0.2);
+      pointer-events: none;
+      transform-origin: left center;
+    }
+
+    .hero-horizon::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 28%;
+      background: var(--accent);
+    }
+
+    .hero-layout {
+      position: relative;
+      z-index: 3;
+      min-height: 100vh;
+      min-height: 100dvh;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: clamp(1.25rem, 4vw, 3.5rem);
+      width: min(1200px, 92%);
+      margin: 0 auto;
+      padding: calc(var(--header-h) + 1.5rem) 0 4.5rem;
+      align-items: stretch;
+    }
+
+    .hero-spine {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-top: 1rem;
+      will-change: transform, opacity;
+    }
+
+    .hero-spine-brand {
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+      font-family: var(--font);
+      font-size: clamp(2.8rem, 6.5vw, 5.2rem);
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      line-height: 1;
+      text-transform: uppercase;
+      color: var(--white);
+      white-space: nowrap;
+    }
+
+    .hero-main {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-width: 0;
+      padding: 1rem 0 0.5rem;
+      will-change: transform, opacity;
+    }
+
+    .hero-main-top {
+      max-width: 34rem;
+      margin-top: clamp(1rem, 8vh, 5rem);
+    }
+
+    .hero-kicker {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+
+    .hero-title-block {
+      margin-bottom: 1.35rem;
+    }
+
+    .hero-title-block .industries {
+      display: block;
+      font-family: var(--font-sans);
+      font-size: clamp(1.05rem, 2vw, 1.35rem);
+      font-weight: 700;
+      letter-spacing: 0.36em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.92);
+      margin-bottom: 0.85rem;
+    }
+
+    .hero-headline {
+      font-family: var(--font);
+      font-size: clamp(1.55rem, 3.2vw, 2.35rem);
+      font-weight: 400;
+      line-height: 1.25;
+      color: var(--white);
+      max-width: 14ch;
+      margin: 0;
+    }
+
+    .hero-main-bottom {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 1.5rem 2rem;
+      padding-top: 2rem;
+    }
+
+    .hero-support {
+      font-size: 1rem;
+      color: rgba(255, 255, 255, 0.72);
+      line-height: 1.7;
+      max-width: 28rem;
+      margin: 0;
+    }
+
+    .hero-cta-group {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.85rem 1rem;
+    }
+
+    .hero-cta {
+      display: inline-flex;
+      align-items: center;
+      background: var(--blue);
+      color: var(--white);
+      padding: 0.85rem 1.35rem;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      border: 1px solid transparent;
+      transition: background 0.25s ease, transform 0.25s ease;
+    }
+
+    .hero-cta:hover {
+      background: var(--blue-light);
+      transform: translateY(-2px);
+    }
+
+    .hero-cta-ghost {
+      background: transparent;
+      border-color: rgba(255, 255, 255, 0.35);
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    .hero-cta-ghost:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.55);
+    }
+
+    .scroll-cue {
+      position: absolute;
+      bottom: 1.4rem;
+      right: max(4%, calc((100% - 1200px) / 2));
+      z-index: 4;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.45rem;
+      color: rgba(255, 255, 255, 0.5);
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .scroll-cue-bar {
+      width: 1px;
+      height: 42px;
+      background: rgba(255, 255, 255, 0.25);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .scroll-cue-bar::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      height: 40%;
+      background: var(--accent);
+      animation: scrollDrop 1.8s var(--ease) infinite;
+    }
+
+    @keyframes scrollDrop {
+      0% { top: -40%; }
+      100% { top: 100%; }
+    }
+
+    /* Entrance */
+    .js .hero-photo {
+      opacity: 0;
+      transform: scale(1.08);
+    }
+    .js .hero-horizon {
+      transform: scaleX(0);
+    }
+    .js .hero-spine,
+    .js .hero-main-top,
+    .js .hero-main-bottom,
+    .js .scroll-cue {
+      opacity: 0;
+    }
+
+    .js #home.is-ready .hero-photo {
+      animation: heroPhotoIn 1.35s var(--ease) forwards;
+    }
+    .js #home.is-ready .hero-horizon {
+      animation: heroHorizon 1s var(--ease) 0.35s forwards;
+    }
+    .js #home.is-ready .hero-spine {
+      animation: heroSpineIn 0.95s var(--ease) 0.4s forwards;
+    }
+    .js #home.is-ready .hero-main-top {
+      animation: heroRise 0.9s var(--ease) 0.55s forwards;
+    }
+    .js #home.is-ready .hero-main-bottom {
+      animation: heroRise 0.9s var(--ease) 0.72s forwards;
+    }
+    .js #home.is-ready .scroll-cue {
+      animation: heroFade 0.7s ease 1s forwards;
+    }
+
+    @keyframes heroPhotoIn {
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes heroHorizon {
+      from { transform: scaleX(0); }
+      to { transform: scaleX(1); }
+    }
+
+    @keyframes heroSpineIn {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes heroRise {
+      from { opacity: 0; transform: translateY(28px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes heroFade {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    /* —— About —— */
+    #about {
+      padding: 6rem 0;
+      background: var(--white);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3.5rem;
+      align-items: center;
+      margin-top: 2.5rem;
+    }
+
+    .about-text p {
+      color: var(--text-muted);
+      margin-bottom: 1.25rem;
+      font-size: 1.02rem;
+    }
+
+    .about-highlight {
+      background: var(--navy);
+      color: var(--white);
+      padding: 1.15rem 1.35rem;
+      border-left: 4px solid var(--accent);
+      font-size: 0.98rem;
+      margin: 1.5rem 0;
+      line-height: 1.65;
+    }
+
+    .chairman-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      padding: 1.5rem;
+      margin-top: 1.5rem;
+      display: grid;
+      grid-template-columns: 88px 1fr;
+      gap: 1.15rem;
+      align-items: start;
+    }
+
+    .chairman-card img {
+      width: 88px;
+      height: 88px;
+      object-fit: cover;
+      border-radius: 4px;
+    }
+
+    .chairman-card blockquote {
+      font-family: var(--font);
+      font-style: italic;
+      font-size: 0.98rem;
+      color: var(--text);
+      line-height: 1.65;
+      margin-bottom: 0.75rem;
+    }
+
+    .chairman-card cite {
+      font-style: normal;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--blue);
+      display: block;
+    }
+
+    .about-image-wrap {
+      position: relative;
+    }
+
+    .about-image-wrap img {
+      width: 100%;
+      height: clamp(280px, 42vw, 480px);
+      object-fit: cover;
+      border-radius: 2px;
+    }
+
+    .about-image-wrap::after {
+      content: "";
+      position: absolute;
+      inset: 16px -16px -16px 16px;
+      border: 2px solid var(--blue);
+      z-index: -1;
+      opacity: 0.35;
+    }
+
+    /* —— Journey (sticky year + milestone rail) —— */
+    #journey {
+      padding: 6rem 0 7rem;
+      background:
+        radial-gradient(ellipse 60% 50% at 0% 20%, rgba(26, 107, 181, 0.18), transparent 55%),
+        linear-gradient(165deg, #07111f 0%, #0f2138 45%, #0a1628 100%);
+      color: var(--white);
+    }
+
+    #journey .section-label { color: var(--accent); }
+
+    #journey .section-title { color: var(--white); }
+
+    #journey .section-lead {
+      color: rgba(255, 255, 255, 0.68);
+    }
+
+    .journey-board {
+      display: grid;
+      grid-template-columns: minmax(200px, 0.85fr) minmax(0, 1.4fr);
+      gap: clamp(1.5rem, 4vw, 3.5rem);
+      margin-top: 3rem;
+      align-items: start;
+    }
+
+    .journey-sticky {
+      position: sticky;
+      top: calc(var(--header-h) + 1.5rem);
+      padding: 1.75rem 0 1rem;
+    }
+
+    .journey-sticky-meta {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.45);
+      margin-bottom: 0.75rem;
+    }
+
+    .journey-sticky-year {
+      font-family: var(--font);
+      font-size: clamp(4.5rem, 10vw, 7.5rem);
+      font-weight: 700;
+      line-height: 0.85;
+      letter-spacing: -0.04em;
+      color: var(--white);
+      margin-bottom: 1.25rem;
+      transition: opacity 0.25s ease, transform 0.35s var(--ease);
+    }
+
+    .journey-sticky-year.is-updating {
+      opacity: 0.35;
+      transform: translateY(12px);
+    }
+
+    .journey-sticky-brand {
+      font-size: 1rem;
+      line-height: 1.55;
+      color: rgba(255, 255, 255, 0.78);
+      min-height: 3.2em;
+      max-width: 18rem;
+      margin-bottom: 1.75rem;
+      transition: opacity 0.25s ease;
+    }
+
+    .journey-progress {
+      width: 100%;
+      max-width: 180px;
+      height: 2px;
+      background: rgba(255, 255, 255, 0.15);
+      margin-bottom: 0.85rem;
+      overflow: hidden;
+    }
+
+    .journey-progress-fill {
+      height: 100%;
+      width: 0%;
+      background: var(--accent);
+      transition: width 0.35s var(--ease);
+    }
+
+    .journey-step-count {
+      font-size: 0.75rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: rgba(255, 255, 255, 0.4);
+    }
+
+    .journey-step-count span {
+      color: var(--accent);
+    }
+
+    .journey-rail {
+      display: flex;
+      flex-direction: column;
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .journey-stop {
+      position: relative;
+      display: grid;
+      grid-template-columns: 3.25rem 6.5rem 1fr;
+      gap: 1rem 1.25rem;
+      align-items: baseline;
+      padding: 1.65rem 0 1.65rem 1.15rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      border-left: 3px solid transparent;
+      cursor: default;
+      transition:
+        background 0.35s ease,
+        border-color 0.35s ease,
+        transform 0.45s var(--ease),
+        opacity 0.45s ease;
+    }
+
+    .js .journey-stop {
+      opacity: 0;
+      transform: translateX(36px);
+    }
+
+    .js .journey-stop.animate-in {
+      opacity: 1;
+      transform: none;
+    }
+
+    .journey-stop.is-active {
+      background: rgba(255, 255, 255, 0.04);
+      border-left-color: var(--accent);
+    }
+
+    .journey-stop-index {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      color: rgba(255, 255, 255, 0.35);
+    }
+
+    .journey-stop.is-active .journey-stop-index {
+      color: var(--accent);
+    }
+
+    .journey-stop-year {
+      font-family: var(--font);
+      font-size: 1.45rem;
+      font-weight: 700;
+      color: rgba(255, 255, 255, 0.55);
+      transition: color 0.3s ease;
+    }
+
+    .journey-stop.is-active .journey-stop-year {
+      color: var(--white);
+    }
+
+    .journey-stop-brands {
+      font-size: 1.02rem;
+      color: rgba(255, 255, 255, 0.62);
+      line-height: 1.55;
+      transition: color 0.3s ease;
+    }
+
+    .journey-stop.is-active .journey-stop-brands {
+      color: rgba(255, 255, 255, 0.92);
+    }
+
+    .journey-stop-ghost {
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      font-family: var(--font);
+      font-size: clamp(3rem, 8vw, 5.5rem);
+      font-weight: 700;
+      line-height: 1;
+      letter-spacing: -0.04em;
+      color: rgba(255, 255, 255, 0.03);
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .journey-stop.is-active .journey-stop-ghost {
+      color: rgba(255, 255, 255, 0.06);
+    }
+
+    /* —— Products (horizontal cinema rail) —— */
+    #products {
+      padding: 0;
+      background: var(--navy);
+      color: var(--white);
+    }
+
+    .offer-rail-wrap {
+      position: relative;
+    }
+
+    .offer-rail-pin {
+      position: sticky;
+      top: var(--header-h);
+      height: calc(100vh - var(--header-h));
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      overflow: hidden;
+      background:
+        radial-gradient(ellipse 70% 50% at 85% 0%, rgba(26, 107, 181, 0.28), transparent 55%),
+        var(--navy);
+    }
+
+    .offer-rail-head {
+      padding-top: 1.75rem;
+      flex-shrink: 0;
+    }
+
+    #products .section-label { color: var(--accent); }
+
+    #products .section-title {
+      color: var(--white);
+      margin-bottom: 0.55rem;
+    }
+
+    #products .section-lead {
+      color: rgba(255, 255, 255, 0.62);
+      max-width: 38rem;
+      font-size: 0.98rem;
+      line-height: 1.6;
+      margin-bottom: 0;
+    }
+
+    .offer-rail-meta {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-top: 1.35rem;
+      margin-bottom: 1.25rem;
+      flex-shrink: 0;
+    }
+
+    .offer-rail-index {
+      font-family: var(--font-sans);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      color: rgba(255, 255, 255, 0.85);
+      white-space: nowrap;
+      min-width: 5.5rem;
+    }
+
+    .offer-rail-progress {
+      flex: 1;
+      height: 2px;
+      background: rgba(255, 255, 255, 0.14);
+      overflow: hidden;
+    }
+
+    .offer-rail-progress-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, var(--accent), var(--blue-light));
+      transform-origin: left center;
+    }
+
+    .offer-rail-hint {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.45);
+      white-space: nowrap;
+    }
+
+    .offer-rail-hint span {
+      display: inline-block;
+      animation: offer-hint-nudge 1.6s var(--ease) infinite;
+    }
+
+    @keyframes offer-hint-nudge {
+      0%, 100% { transform: translateX(0); opacity: 0.55; }
+      50% { transform: translateX(6px); opacity: 1; }
+    }
+
+    .offer-rail-viewport {
+      flex: 1;
+      min-height: 0;
+      display: flex;
+      align-items: stretch;
+      overflow: hidden;
+      padding-bottom: 1.75rem;
+    }
+
+    .offer-rail-track {
+      display: flex;
+      gap: 1.15rem;
+      padding-left: max(4vw, calc((100% - 1140px) / 2 + 4%));
+      padding-right: 12vw;
+      will-change: transform;
+      height: 100%;
+      align-items: stretch;
+    }
+
+    .offer-card {
+      flex: 0 0 clamp(260px, 28vw, 380px);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      background: var(--navy-mid);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      overflow: hidden;
+      height: 100%;
+      max-height: 520px;
+      min-height: 380px;
+      transition: border-color 0.35s ease, transform 0.45s var(--ease);
+    }
+
+    .offer-card:hover,
+    .offer-card.is-active {
+      border-color: rgba(201, 162, 39, 0.55);
+    }
+
+    .offer-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .offer-card-media {
+      position: relative;
+      flex: 1 1 auto;
+      min-height: 180px;
+      overflow: hidden;
+    }
+
+    .offer-card-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scale(1.04);
+      transition: transform 0.7s var(--ease);
+    }
+
+    .offer-card:hover .offer-card-media img {
+      transform: scale(1.1);
+    }
+
+    .offer-card-media::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 40%, rgba(12, 26, 46, 0.92) 100%);
+      pointer-events: none;
+    }
+
+    .offer-card-num {
+      position: absolute;
+      top: 0.85rem;
+      left: 0.9rem;
+      z-index: 2;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      color: var(--accent);
+      background: rgba(12, 26, 46, 0.65);
+      padding: 0.3rem 0.5rem;
+      backdrop-filter: blur(6px);
+    }
+
+    .offer-card-body {
+      padding: 1.1rem 1.15rem 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+      flex-shrink: 0;
+    }
+
+    .offer-card-title {
+      font-family: var(--font);
+      font-size: clamp(1.15rem, 2vw, 1.45rem);
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.2;
+      margin: 0;
+    }
+
+    .offer-card-brand {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--blue-light);
+    }
+
+    .offer-card-desc {
+      font-size: 0.86rem;
+      line-height: 1.55;
+      color: rgba(255, 255, 255, 0.58);
+      margin: 0.15rem 0 0.35rem;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .offer-card-link {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      align-self: flex-start;
+      border-bottom: 1px solid rgba(201, 162, 39, 0.4);
+      padding-bottom: 0.12rem;
+      transition: color 0.25s ease, border-color 0.25s ease;
+    }
+
+    .offer-card-link:hover {
+      color: var(--white);
+      border-color: var(--white);
+    }
+
+    .js .offer-card {
+      opacity: 0;
+      transform: translateX(28px);
+      transition: opacity 0.55s var(--ease), transform 0.55s var(--ease), border-color 0.35s ease;
+    }
+
+    .js .offer-card.is-in {
+      opacity: 1;
+      transform: none;
+    }
+
+    .js .offer-card.is-in:hover {
+      transform: translateY(-4px);
+    }
+
+    /* —— Product highlights (chapter dossiers) —— */
+    #highlights {
+      background: var(--bg);
+    }
+
+    .hl-chapter {
+      position: relative;
+      border-bottom: 1px solid var(--border);
+      background: var(--white);
+    }
+
+    .hl-chapter:nth-child(even) {
+      background: #0c1a2e;
+      color: var(--white);
+      border-bottom-color: rgba(255, 255, 255, 0.08);
+    }
+
+    .hl-banner {
+      position: relative;
+      min-height: clamp(320px, 52vh, 520px);
+      overflow: hidden;
+      display: grid;
+      align-items: end;
+    }
+
+    .hl-banner img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: saturate(0.85) contrast(1.05);
+      transform: scale(1.02);
+    }
+
+    .hl-chapter:nth-child(even) .hl-banner img {
+      filter: saturate(0.75) contrast(1.08) brightness(0.9);
+    }
+
+    .hl-banner::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(7, 17, 31, 0.82) 0%, rgba(7, 17, 31, 0.35) 48%, rgba(7, 17, 31, 0.2) 100%),
+        linear-gradient(180deg, transparent 30%, rgba(7, 17, 31, 0.75) 100%);
+      z-index: 1;
+    }
+
+    .hl-banner-content {
+      position: relative;
+      z-index: 2;
+      width: min(1140px, 92%);
+      margin: 0 auto;
+      padding: 3.5rem 0 2.75rem;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 1.5rem;
+      align-items: end;
+      color: var(--white);
+    }
+
+    .hl-brand {
+      display: block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+    }
+
+    .hl-banner-content h2 {
+      font-family: var(--font);
+      font-size: clamp(2.2rem, 5vw, 3.6rem);
+      line-height: 1.05;
+      margin: 0;
+      max-width: 12ch;
+    }
+
+    .hl-chapter-num {
+      font-family: var(--font);
+      font-size: clamp(4.5rem, 12vw, 8rem);
+      font-weight: 700;
+      line-height: 0.85;
+      letter-spacing: -0.04em;
+      color: rgba(255, 255, 255, 0.14);
+      user-select: none;
+    }
+
+    .hl-body {
+      width: min(1140px, 92%);
+      margin: 0 auto;
+      padding: 2.75rem 0 4rem;
+      display: grid;
+      grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.2fr);
+      gap: clamp(1.5rem, 4vw, 3.5rem);
+      align-items: start;
+    }
+
+    .hl-intro {
+      position: sticky;
+      top: calc(var(--header-h) + 1.5rem);
+    }
+
+    .hl-intro .section-label {
+      margin-bottom: 0.85rem;
+    }
+
+    .hl-chapter:nth-child(even) .hl-intro .section-label {
+      color: var(--accent);
+    }
+
+    .hl-intro p {
+      font-size: 1rem;
+      line-height: 1.75;
+      color: var(--text-muted);
+      margin: 0 0 1.1rem;
+    }
+
+    .hl-chapter:nth-child(even) .hl-intro p {
+      color: rgba(255, 255, 255, 0.72);
+    }
+
+    .hl-specs {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .hl-chapter:nth-child(even) .hl-specs {
+      border-top-color: rgba(255, 255, 255, 0.14);
+    }
+
+    .hl-spec {
+      padding: 1.5rem 1.25rem 1.5rem 0;
+      border-right: 1px solid var(--border);
+      padding-right: 1.25rem;
+      margin-right: 1.25rem;
+    }
+
+    .hl-spec:last-child {
+      border-right: none;
+      margin-right: 0;
+      padding-right: 0;
+    }
+
+    .hl-chapter:nth-child(even) .hl-spec {
+      border-right-color: rgba(255, 255, 255, 0.12);
+    }
+
+    .hl-spec-media {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      margin-bottom: 1.1rem;
+      display: block;
+      background: var(--bg-alt);
+    }
+
+    .hl-spec h3 {
+      font-family: var(--font);
+      font-size: 1.15rem;
+      color: var(--navy);
+      margin: 0 0 0.75rem;
+      line-height: 1.25;
+      padding-top: 0.75rem;
+      border-top: 2px solid var(--blue);
+    }
+
+    .hl-chapter:nth-child(even) .hl-spec h3 {
+      color: var(--white);
+      border-top-color: var(--accent);
+    }
+
+    .hl-spec ul {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .hl-spec li {
+      font-size: 0.88rem;
+      line-height: 1.5;
+      color: var(--text-muted);
+      padding-left: 0.85rem;
+      position: relative;
+    }
+
+    .hl-spec li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.55em;
+      width: 5px;
+      height: 5px;
+      background: var(--blue);
+    }
+
+    .hl-chapter:nth-child(even) .hl-spec li {
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .hl-chapter:nth-child(even) .hl-spec li::before {
+      background: var(--accent);
+    }
+
+    /* —— Metrics —— */
+    #metrics {
+      padding: 5rem 0;
+      background:
+        linear-gradient(135deg, rgba(12, 26, 46, 0.92), rgba(26, 107, 181, 0.85)),
+        url("https://cdn.storebox.ai/media/f2b7587c-8821-4d8b-a3a9-b53e761f5395/72272e6c-c037-43cc-a0e3-44799a43bd29/page-header-contact.jpg") center/cover;
+      color: var(--white);
+    }
+
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      text-align: center;
+    }
+
+    .metric-value {
+      font-family: var(--font);
+      font-size: clamp(3rem, 7vw, 4.5rem);
+      font-weight: 700;
+      line-height: 1;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    .metric-label {
+      font-size: 1rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: rgba(255,255,255,0.85);
+    }
+
+    /* —— Clients —— */
+    #clients {
+      padding: 6rem 0;
+      background: var(--bg);
+      overflow: hidden;
+    }
+
+    .clients-marquee {
+      margin-top: 2.5rem;
+      overflow: hidden;
+      mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+    }
+
+    .clients-track {
+      display: flex;
+      gap: 1.5rem;
+      width: max-content;
+      will-change: transform;
+    }
+
+    .client-logo {
+      flex: 0 0 auto;
+      width: 150px;
+      height: 90px;
+      background: var(--white);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.85rem;
+      filter: grayscale(1);
+      opacity: 0.55;
+      transition: filter 0.5s ease, opacity 0.5s ease, transform 0.35s ease;
+    }
+
+    .client-logo.animate-in,
+    .clients-section-active .client-logo {
+      filter: grayscale(0);
+      opacity: 1;
+    }
+
+    .client-logo:hover { transform: scale(1.04); }
+
+    .client-logo img {
+      max-height: 64px;
+      width: auto;
+      max-width: 100%;
+      object-fit: contain;
+    }
+
+    .clients-grid {
+      display: none;
+      grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    /* —— Awards —— */
+    #awards {
+      padding: 6rem 0;
+      background: var(--white);
+    }
+
+    .awards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 2.75rem;
+    }
+
+    .award-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      overflow: hidden;
+      transition: transform 0.4s var(--ease), box-shadow 0.4s ease;
+    }
+
+    .award-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(12, 26, 46, 0.1);
+    }
+
+    .award-card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+
+    .award-card figcaption {
+      padding: 0.9rem 1rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-align: center;
+    }
+
+    /* —— Contact (dense full-width) —— */
+    #contact {
+      padding: 0;
+      background:
+        radial-gradient(ellipse 60% 50% at 80% 0%, rgba(26, 107, 181, 0.18), transparent 55%),
+        linear-gradient(160deg, #07111f 0%, #0f2138 55%, #0a1628 100%);
+      color: var(--white);
+      overflow: hidden;
+    }
+
+    .contact-bridge {
+      width: min(1140px, 94%);
+      margin: 0 auto;
+      padding: 3.25rem 0 3rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.35rem;
+    }
+
+    .contact-head {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 1rem 2rem;
+      align-items: end;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+    }
+
+    #contact .section-label {
+      color: var(--accent);
+      margin-bottom: 0.35rem;
+    }
+
+    #contact .section-title {
+      color: var(--white);
+      font-size: clamp(1.85rem, 3.5vw, 2.6rem);
+      max-width: none;
+      margin: 0;
+      line-height: 1.1;
+    }
+
+    .contact-head-side {
+      text-align: right;
+      max-width: 28rem;
+    }
+
+    .contact-trust {
+      font-family: var(--font);
+      font-size: 0.92rem;
+      line-height: 1.5;
+      color: rgba(255, 255, 255, 0.65);
+      margin: 0 0 0.55rem;
+    }
+
+    .contact-email-block span {
+      display: block;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.4);
+      margin-bottom: 0.25rem;
+    }
+
+    .contact-email-block a {
+      font-family: var(--font);
+      font-size: 1.05rem;
+      color: var(--white);
+      transition: color 0.25s ease, transform 0.25s ease;
+      display: inline-block;
+    }
+
+    .contact-email-block a:hover {
+      color: var(--accent);
+      transform: scale(1.03);
+    }
+
+    .contact-hotline-label {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.4);
+      margin: 0 0 0.55rem;
+    }
+
+    .contact-hotline {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 0.55rem;
+    }
+
+    .contact-phone {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+      padding: 0.7rem 0.75rem;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: rgba(255, 255, 255, 0.03);
+      color: var(--white);
+      text-decoration: none;
+      transition: border-color 0.25s ease, background 0.25s ease, color 0.25s ease;
+    }
+
+    .contact-phone:hover {
+      border-color: var(--accent);
+      background: rgba(201, 162, 39, 0.08);
+      color: var(--accent);
+    }
+
+    .contact-phone-num {
+      font-family: var(--font);
+      font-size: clamp(0.85rem, 1.4vw, 1rem);
+      font-weight: 700;
+      letter-spacing: 0.01em;
+    }
+
+    .contact-phone-mark {
+      font-size: 0.62rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      opacity: 0.5;
+    }
+
+    .contact-split {
+      display: grid;
+      grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.25fr);
+      gap: 1rem 1.35rem;
+      align-items: stretch;
+    }
+
+    .contact-side {
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+    }
+
+    .contact-offices {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.75rem;
+      flex: 1;
+    }
+
+    .contact-office {
+      padding: 0.95rem 1rem;
+      border-left: 2px solid var(--accent);
+      background: rgba(255, 255, 255, 0.03);
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      border-right: 1px solid rgba(255, 255, 255, 0.08);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .contact-office h3 {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin: 0 0 0.4rem;
+    }
+
+    .contact-office p {
+      font-family: var(--font);
+      font-size: 0.95rem;
+      line-height: 1.45;
+      color: rgba(255, 255, 255, 0.88);
+      margin: 0;
+    }
+
+    .contact-compose {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      padding: 1.15rem 1.15rem 1.1rem;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .contact-compose h3 {
+      font-family: var(--font);
+      font-size: 1.2rem;
+      margin: 0 0 0.85rem;
+      color: var(--white);
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.65rem 0.85rem;
+    }
+
+    .form-group {
+      margin-bottom: 0.7rem;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.45);
+      margin-bottom: 0.25rem;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.4rem 0;
+      border: none;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.28);
+      background: transparent;
+      color: var(--white);
+      font-size: 0.95rem;
+      border-radius: 0;
+      transition: border-color 0.25s ease;
+    }
+
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: rgba(255, 255, 255, 0.28);
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-bottom-color: var(--accent);
+    }
+
+    .form-group textarea {
+      min-height: 72px;
+      resize: vertical;
+      flex: 1;
+    }
+
+    .form-group.form-message {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 0.85rem;
+    }
+
+    .form-group.form-message textarea {
+      flex: 1;
+      min-height: 88px;
+    }
+
+    .btn-submit {
+      background: var(--accent);
+      color: var(--navy);
+      border: none;
+      padding: 0.75rem 1.35rem;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.25s ease, transform 0.25s ease;
+      align-self: flex-start;
+      margin-top: auto;
+    }
+
+    .btn-submit:hover {
+      background: var(--white);
+      transform: translateY(-2px);
+    }
+
+    /* —— Footer —— */
+    .site-footer {
+      background: var(--navy);
+      color: rgba(255,255,255,0.65);
+      padding: 2rem 0;
+      text-align: center;
+      font-size: 0.85rem;
+    }
+
+    .site-footer a { color: var(--accent); }
+    .site-footer a:hover { text-decoration: underline; }
+
+    .back-top {
+      position: fixed;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      z-index: 900;
+      width: 46px;
+      height: 46px;
+      background: var(--blue);
+      color: var(--white);
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(12px);
+      transition: opacity 0.3s ease, transform 0.3s ease, background 0.25s ease;
+      font-size: 1.25rem;
+      line-height: 1;
+      box-shadow: 0 6px 20px rgba(26, 107, 181, 0.4);
+    }
+
+    .back-top.visible {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+
+    .back-top:hover { background: var(--navy); }
+
+    /* —— Responsive —— */
+    @media (max-width: 1024px) {
+      .nav-desktop { display: none; }
+      .nav-toggle { display: flex; }
+
+      .contact-hotline {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .contact-split {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-horizon { top: 54%; }
+
+      .hero-headline { max-width: 18ch; }
+
+      .scroll-cue {
+        right: 6vw;
+        bottom: 1.15rem;
+      }
+
+      .awards-grid { grid-template-columns: repeat(2, 1fr); }
+
+      .hl-body {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+      }
+
+      .hl-intro {
+        position: relative;
+        top: 0;
+      }
+
+      .hl-specs {
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+
+      .hl-spec {
+        margin-right: 0.75rem;
+        padding-right: 0.75rem;
+      }
+
+      .hl-spec:last-child {
+        margin-right: 0;
+        padding-right: 0;
+      }
+
+      .hl-spec-media {
+        height: 110px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      :root { --header-h: 56px; }
+
+      .container {
+        width: min(1140px, 94%);
+      }
+
+      .section-title {
+        font-size: clamp(1.45rem, 6vw, 1.85rem);
+        margin-bottom: 0.55rem;
+      }
+
+      .section-lead {
+        font-size: 0.92rem;
+        line-height: 1.55;
+      }
+
+      .section-label {
+        margin-bottom: 0.4rem;
+      }
+
+      .logo span { font-size: 0.9rem; }
+      .logo img { height: 32px; }
+
+      /* Hero: full-bleed viewport */
+      #home {
+        min-height: 100vh;
+        min-height: 100dvh;
+        width: 100%;
+      }
+
+      .hero-photo {
+        inset: 0;
+      }
+
+      .hero-photo img {
+        object-position: center 28%;
+      }
+
+      .hero-photo::after {
+        background:
+          linear-gradient(180deg, rgba(7, 16, 24, 0.55) 0%, rgba(7, 16, 24, 0.22) 32%, rgba(7, 16, 24, 0.45) 62%, rgba(7, 16, 24, 0.94) 100%),
+          linear-gradient(90deg, rgba(7, 16, 24, 0.55) 0%, transparent 55%);
+      }
+
+      .hero-layout {
+        grid-template-columns: 1fr;
+        width: 100%;
+        max-width: none;
+        min-height: 100vh;
+        min-height: 100dvh;
+        margin: 0;
+        padding: calc(var(--header-h) + 1.15rem) 5vw 1.75rem;
+        gap: 0.65rem;
+        box-sizing: border-box;
+      }
+
+      .hero-spine {
+        justify-content: flex-start;
+        padding-top: 0;
+      }
+
+      .hero-spine-brand {
+        writing-mode: horizontal-tb;
+        transform: none;
+        font-size: clamp(2.6rem, 14vw, 3.4rem);
+        letter-spacing: -0.02em;
+      }
+
+      .hero-main {
+        padding: 0;
+        gap: 0;
+        flex: 1;
+        justify-content: space-between;
+        min-height: 0;
+      }
+
+      .hero-main-top {
+        margin-top: 0.35rem;
+        max-width: none;
+      }
+
+      .hero-kicker { margin-bottom: 0.55rem; }
+
+      .hero-title-block { margin-bottom: 0.65rem; }
+
+      .hero-title-block .industries {
+        font-size: 0.95rem;
+        letter-spacing: 0.28em;
+        margin-bottom: 0.55rem;
+      }
+
+      .hero-headline {
+        font-size: clamp(1.25rem, 5.2vw, 1.55rem);
+        max-width: 16ch;
+      }
+
+      .hero-support {
+        font-size: 0.92rem;
+        line-height: 1.55;
+        max-width: 28ch;
+        margin: 0;
+      }
+
+      .hero-main-bottom {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1rem;
+        padding-top: 0;
+        margin-top: auto;
+      }
+
+      .hero-cta-group {
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: stretch;
+        gap: 0.55rem;
+      }
+
+      .hero-cta {
+        justify-content: center;
+        flex: 1 1 0;
+        padding: 0.85rem 0.75rem;
+        font-size: 0.68rem;
+      }
+
+      .hero-horizon {
+        top: auto;
+        bottom: 38%;
+        left: 0;
+        right: 0;
+      }
+
+      .scroll-cue {
+        display: flex;
+        right: 5vw;
+        bottom: 1.1rem;
+      }
+
+      .scroll-cue-bar { height: 28px; }
+
+      /* Global section density */
+      #about {
+        padding: 2.25rem 0;
+      }
+
+      #journey {
+        padding: 2.25rem 0 2.5rem;
+      }
+
+      #products {
+        padding: 0;
+      }
+
+      #clients,
+      #awards {
+        padding: 2.25rem 0;
+      }
+
+      #metrics {
+        padding: 2.25rem 0;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 1.15rem;
+        margin-top: 1.25rem;
+      }
+
+      .about-text p {
+        font-size: 0.92rem;
+        margin-bottom: 0.75rem;
+      }
+
+      .about-highlight {
+        padding: 0.85rem 1rem;
+        margin: 0.85rem 0;
+        font-size: 0.9rem;
+      }
+
+      .about-image-wrap::after { display: none; }
+
+      .about-image-wrap img {
+        height: 180px;
+      }
+
+      .chairman-card {
+        grid-template-columns: 64px 1fr;
+        gap: 0.75rem;
+        padding: 0.85rem;
+        text-align: left;
+        margin-top: 0.85rem;
+      }
+
+      .chairman-card img {
+        width: 64px;
+        height: 64px;
+        margin: 0;
+      }
+
+      .chairman-card blockquote {
+        font-size: 0.85rem;
+        margin-bottom: 0.35rem;
+      }
+
+      /* Journey: horizontal year strip */
+      #journey .section-lead {
+        font-size: 0.88rem;
+        line-height: 1.5;
+        max-width: none;
+      }
+
+      .journey-board {
+        grid-template-columns: 1fr;
+        gap: 0;
+        margin-top: 1.1rem;
+      }
+
+      .journey-sticky {
+        position: sticky;
+        top: var(--header-h);
+        z-index: 6;
+        background:
+          linear-gradient(180deg, #0a1628 0%, rgba(10, 22, 40, 0.97) 100%);
+        padding: 0.7rem 0 0.85rem;
+        display: grid;
+        grid-template-columns: 1fr auto;
+        grid-template-areas:
+          "year step"
+          "brand brand"
+          "progress progress";
+        gap: 0.2rem 0.75rem;
+        align-items: end;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        margin: 0 -4vw;
+        padding-left: 4vw;
+        padding-right: 4vw;
+        box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25);
+      }
+
+      .journey-sticky-meta { display: none; }
+
+      .journey-sticky-year {
+        grid-area: year;
+        font-size: 2.35rem;
+        margin-bottom: 0;
+        line-height: 0.9;
+        letter-spacing: -0.03em;
+      }
+
+      .journey-sticky-year.is-updating {
+        transform: translateX(8px);
+      }
+
+      .journey-sticky-brand {
+        grid-area: brand;
+        min-height: 0;
+        margin: 0.15rem 0 0.55rem;
+        font-size: 0.78rem;
+        line-height: 1.35;
+        max-width: none;
+        color: rgba(255, 255, 255, 0.72);
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+
+      .journey-progress {
+        grid-area: progress;
+        display: block;
+        max-width: none;
+        width: 100%;
+        height: 3px;
+        margin-bottom: 0;
+        background: rgba(255, 255, 255, 0.12);
+      }
+
+      .journey-step-count {
+        grid-area: step;
+        font-size: 0.68rem;
+        margin: 0;
+        padding-bottom: 0.2rem;
+        align-self: end;
+      }
+
+      .journey-rail {
+        display: flex;
+        flex-direction: row;
+        gap: 0.75rem;
+        overflow-x: auto;
+        overflow-y: hidden;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        border-top: none;
+        margin: 1rem -4vw 0;
+        padding: 0.15rem 4vw 0.35rem;
+        scroll-padding-left: 4vw;
+      }
+
+      .journey-rail::-webkit-scrollbar { display: none; }
+
+      .journey-stop {
+        flex: 0 0 min(72vw, 260px);
+        scroll-snap-align: start;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        gap: 0.35rem;
+        min-height: 168px;
+        padding: 1rem 1rem 1.05rem;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-left: 1px solid rgba(255, 255, 255, 0.12);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+        background:
+          linear-gradient(160deg, rgba(255, 255, 255, 0.05), transparent 55%),
+          rgba(15, 33, 56, 0.65);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .journey-stop.is-active {
+        border-color: rgba(201, 162, 39, 0.55);
+        background:
+          linear-gradient(160deg, rgba(201, 162, 39, 0.12), transparent 50%),
+          rgba(21, 42, 69, 0.9);
+      }
+
+      .journey-stop-index {
+        position: absolute;
+        top: 0.85rem;
+        left: 0.95rem;
+        font-size: 0.65rem;
+        letter-spacing: 0.16em;
+      }
+
+      .journey-stop-year {
+        font-size: 2rem;
+        line-height: 1;
+        color: rgba(255, 255, 255, 0.88);
+        margin-top: auto;
+      }
+
+      .journey-stop.is-active .journey-stop-year {
+        color: var(--accent);
+      }
+
+      .journey-stop-brands {
+        font-size: 0.8rem;
+        line-height: 1.4;
+        color: rgba(255, 255, 255, 0.62);
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+
+      .journey-stop-ghost {
+        display: block;
+        position: absolute;
+        right: -0.15rem;
+        top: 0.35rem;
+        transform: none;
+        font-size: 4.25rem;
+        color: rgba(255, 255, 255, 0.04);
+        line-height: 1;
+      }
+
+      .journey-stop.is-active .journey-stop-ghost {
+        color: rgba(201, 162, 39, 0.08);
+      }
+
+      .js .journey-stop {
+        opacity: 0;
+        transform: translateX(24px);
+      }
+
+      .js .journey-stop.animate-in {
+        opacity: 1;
+        transform: none;
+      }
+
+      /* Offerings: swipe rail (no tall pin scroll) */
+      .offer-rail-wrap {
+        height: auto !important;
+      }
+
+      .offer-rail-pin {
+        position: relative;
+        top: auto;
+        height: auto;
+        padding: 2.25rem 0 2.5rem;
+      }
+
+      .offer-rail-head {
+        padding-top: 0;
+      }
+
+      #products .section-title {
+        font-size: 1.65rem;
+      }
+
+      #products .section-lead {
+        font-size: 0.88rem;
+        line-height: 1.5;
+      }
+
+      .offer-rail-meta {
+        margin-top: 1rem;
+        margin-bottom: 0.9rem;
+        gap: 0.65rem;
+      }
+
+      .offer-rail-hint { display: none; }
+
+      .offer-rail-viewport {
+        overflow-x: auto;
+        overflow-y: hidden;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        padding-bottom: 0.35rem;
+        scrollbar-width: none;
+      }
+
+      .offer-rail-viewport::-webkit-scrollbar { display: none; }
+
+      .offer-rail-track {
+        transform: none !important;
+        padding-left: 4%;
+        padding-right: 4%;
+        gap: 0.85rem;
+        height: auto;
+      }
+
+      .offer-card {
+        flex: 0 0 min(78vw, 300px);
+        scroll-snap-align: start;
+        max-height: none;
+        min-height: 0;
+        height: auto;
+      }
+
+      .offer-card-media {
+        height: 160px;
+        flex: none;
+      }
+
+      .offer-card-body {
+        padding: 0.85rem 0.9rem 1rem;
+        gap: 0.3rem;
+      }
+
+      .offer-card-title { font-size: 1.05rem; }
+      .offer-card-desc {
+        font-size: 0.8rem;
+        -webkit-line-clamp: 2;
+      }
+
+      .js .offer-card,
+      .js .offer-card.is-in:hover {
+        transform: none;
+      }
+
+      /* Highlights: short banners, no big images in specs */
+      .hl-banner {
+        min-height: 160px;
+      }
+
+      .hl-banner-content {
+        grid-template-columns: 1fr auto;
+        gap: 0.5rem;
+        padding: 1.35rem 0 1.1rem;
+        align-items: end;
+      }
+
+      .hl-banner-content h2 {
+        font-size: 1.55rem;
+        max-width: none;
+      }
+
+      .hl-brand { margin-bottom: 0.35rem; }
+
+      .hl-chapter-num {
+        font-size: 2.5rem;
+        justify-self: end;
+      }
+
+      .hl-body {
+        padding: 1.15rem 0 1.75rem;
+        gap: 0.85rem;
+      }
+
+      .hl-intro p {
+        font-size: 0.88rem;
+        line-height: 1.55;
+        margin: 0 0 0.65rem;
+      }
+
+      .hl-intro p:not(.section-label) {
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+
+      .hl-intro p:not(.section-label) + p {
+        display: none;
+      }
+
+      .hl-specs {
+        grid-template-columns: 1fr;
+      }
+
+      .hl-spec {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 0.25rem 0.75rem;
+        border-right: none;
+        margin-right: 0;
+        padding: 0.75rem 0;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .hl-chapter:nth-child(even) .hl-spec {
+        border-bottom-color: rgba(255, 255, 255, 0.12);
+      }
+
+      .hl-spec:last-child { border-bottom: none; }
+
+      .hl-spec-media { display: none; }
+
+      .hl-spec h3 {
+        grid-column: 1 / -1;
+        font-size: 0.98rem;
+        margin: 0;
+        padding-top: 0.45rem;
+      }
+
+      .hl-spec ul {
+        grid-column: 1 / -1;
+        gap: 0.2rem;
+      }
+
+      .hl-spec li {
+        font-size: 0.8rem;
+        line-height: 1.35;
+      }
+
+      /* Metrics: keep in one row */
+      .metrics-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.65rem;
+      }
+
+      .metric-value {
+        font-size: clamp(1.6rem, 7vw, 2.1rem);
+      }
+
+      .metric-label {
+        font-size: 0.62rem;
+        letter-spacing: 0.04em;
+      }
+
+      /* Clients & awards denser */
+      .clients-marquee { display: none; }
+      .clients-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 0.45rem;
+        margin-top: 1.15rem;
+      }
+
+      .clients-grid .client-logo {
+        width: auto;
+        height: 58px;
+        padding: 0.4rem;
+      }
+
+      .clients-grid .client-logo img {
+        max-height: 36px;
+      }
+
+      .awards-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.65rem;
+        margin-top: 1.15rem;
+      }
+
+      .award-card img { height: 120px; }
+      .award-card figcaption {
+        padding: 0.45rem 0.5rem;
+        font-size: 0.72rem;
+      }
+
+      /* Contact already dense; keep compact */
+      .contact-bridge {
+        padding: 2rem 0 1.85rem;
+        gap: 0.85rem;
+      }
+
+      .contact-head {
+        grid-template-columns: 1fr;
+        gap: 0.55rem;
+        padding-bottom: 0.75rem;
+      }
+
+      .contact-head-side {
+        text-align: left;
+        max-width: none;
+      }
+
+      .contact-trust {
+        font-size: 0.82rem;
+        margin-bottom: 0.35rem;
+      }
+
+      .contact-hotline {
+        grid-template-columns: 1fr 1fr;
+        gap: 0.4rem;
+      }
+
+      .contact-phone { padding: 0.55rem 0.6rem; }
+
+      .contact-phone-num { font-size: 0.82rem; }
+
+      .contact-split {
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+      }
+
+      .contact-office { padding: 0.7rem 0.75rem; }
+
+      .contact-office p { font-size: 0.88rem; }
+
+      .contact-compose { padding: 0.9rem; }
+
+      .form-row { grid-template-columns: 1fr; }
+
+      .form-group { margin-bottom: 0.55rem; }
+
+      .form-group.form-message textarea { min-height: 64px; }
+
+      .site-footer { padding: 1.15rem 0; font-size: 0.75rem; }
+
+      .back-top {
+        width: 40px;
+        height: 40px;
+        bottom: 1rem;
+        right: 1rem;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+      .js .reveal,
+      .js .stagger-child,
+      .js .journey-stop,
+      .js .offer-card {
+        opacity: 1;
+        transform: none;
+      }
+
+      .offer-rail-hint span { animation: none; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header" id="siteHeader">
+    <div class="header-inner">
+      <a href="#home" class="logo">
+        <img src="https://cdn.storebox.ai/media/f2b7587c-8821-4d8b-a3a9-b53e761f5395/40ffa9b6-8f00-4cbb-80fe-c8cdf422dc0b/logo.png" alt="Adarsh Industries logo">
+        <span>Adarsh Industries</span>
+      </a>
+      <nav class="nav-desktop" aria-label="Primary">
+        <a href="#home" data-nav="home">Home</a>
+        <a href="#about" data-nav="about">About</a>
+        <a href="#journey" data-nav="journey">Our Journey</a>
+        <a href="#products" data-nav="products">Industries &amp; Products</a>
+        <a href="#clients" data-nav="clients">Clients</a>
+        <a href="#awards" data-nav="awards">Awards</a>
+        <a href="#contact" data-nav="contact">Contact</a>
+      </nav>
+      <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <nav class="nav-mobile" id="navMobile" aria-label="Mobile">
+      <a href="#home" data-nav="home">Home</a>
+      <a href="#about" data-nav="about">About</a>
+      <a href="#journey" data-nav="journey">Our Journey</a>
+      <a href="#products" data-nav="products">Industries &amp; Products</a>
+      <a href="#clients" data-nav="clients">Clients</a>
+      <a href="#awards" data-nav="awards">Awards</a>
+      <a href="#contact" data-nav="contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- 1. HERO -->
+    <section id="home" data-section="home" aria-label="Welcome">
+      <div class="hero-photo" id="heroBg">
+        <img
+          id="heroMediaImg"
+          src="https://cdn.storebox.ai/media/f2b7587c-8821-4d8b-a3a9-b53e761f5395/c48c45b5-d5c8-4a01-ae68-f2f2ff0e0de5/photo-1473341304170-971dccb5ac1e-462ff5ae.jpg"
+          alt="High-voltage power lines against the sky"
+        >
+      </div>
+      <div class="hero-horizon" aria-hidden="true"></div>
+
+      <div class="hero-layout" id="heroContent">
+        <div class="hero-spine">
+          <h1 class="hero-spine-brand">Adarsh</h1>
+        </div>
+        <div class="hero-main">
+          <div class="hero-main-top">
+            <p class="hero-kicker">Welcome</p>
+            <div class="hero-title-block">
+              <span class="industries">Industries</span>
+              <p class="hero-headline">A Legacy of Innovation and Excellence</p>
+            </div>
+          </div>
+          <div class="hero-main-bottom">
+            <p class="hero-support">Adarsh Industries is a one stop shop for all the industrial electrical appliances.</p>
+            <div class="hero-cta-group">
+              <a href="#products" class="hero-cta">Explore products</a>
+              <a href="#about" class="hero-cta hero-cta-ghost">Our story</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <a href="#about" class="scroll-cue" aria-label="Scroll to explore">
+        <span class="scroll-cue-bar" aria-hidden="true"></span>
+        <span>Scroll</span>
+      </a>
+    </section>
+
+    <!-- 2. ABOUT -->
+    <section id="about" data-section="about" aria-labelledby="about-title">
+      <div class="container">
+        <p class="section-label reveal from-bottom">About Us</p>
+        <h2 class="section-title reveal from-bottom" id="about-title">Discover Adarsh Group</h2>
+        <div class="about-grid">
+          <div class="about-text reveal from-left">
+            <p>Adarsh Industries was started in 1990. Its foundation was laid by the Honorable Chairman Shri Narendra Kumar Mittal. Further the company was taken over by his son, The Managing Director of the company Mr. Puneet Mittal.</p>
+            <p>At Adarsh Industries, they specialize in providing high-quality industrial electrical appliances to meet the diverse needs of modern industries. With a commitment to excellence and innovation, we strive to deliver cutting-edge solutions that enhance efficiency, safety, and productivity in industrial environments.</p>
+            <div class="about-highlight">
+              Adarsh Industries has a team of more than 100 members of highly qualified engineers. Our mission is to be a trusted partner for businesses seeking reliable electrical appliances for their industrial operations.
+            </div>
+            <article class="chairman-card">
+              <img src="https://cdn.storebox.ai/media/f2b7587c-8821-4d8b-a3a9-b53e761f5395/fbc51fbe-6c1b-4d10-b7dc-a79f21a5a221/puneet-mittal.jpg" alt="Puneet Mittal, Chairman">
+              <div>
+                <blockquote>“Our vision is to lead with purpose, integrity, and innovation. We aim to be a beacon of excellence in our industry, driving sustainable growth while making a positive impact on society.”</blockquote>
+                <cite>Puneet Mittal — Chairman</cite>
+              </div>
+            </article>
+          </div>
+          <div class="about-image-wrap reveal from-right">
+            <img src="https://cdn.storebox.ai/media/f2b7587c-8821-4d8b-a3a9-b53e761f5395/557a4545-8900-4d2c-ad52-b7813a374d90/about-home.jpg" alt="Adarsh Industries about">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. JOURNEY -->
+    <section id="journey" data-section="journey" aria-labelledby="journey-title">
+      <div class="container">
+        <p class="section-label reveal from-bottom">Our Journey</p>
+        <h2 class="section-title reveal from-bottom" id="journey-title">Milestones of Growth</h2>
+        <p class="section-lead reveal from-bottom">In 2004, Adarsh Industries got the dealership of ASHOK LEYLAND DG sets which ranged from 15 KVA – 250 KVA. This marked a significant milestone, as the company also secured dealership and distribution rights for the following products.</p>
+
+        <div class="journey-board">
+          <aside class="journey-sticky reveal from-left" aria-live="polite">
+            <p class="journey-sticky-meta">Now viewing</p>
+            <div class="journey-sticky-year" id="journeyActiveYear">2010</div>
+            <p class="journey-sticky-brand" id="journeyActiveBrand">STAMFORD ALTERNATORS</p>
+            <div class="journey-progress" aria-hidden="true">
+              <div class="journey-progress-fill" id="journeyProgressFill"></div>
+            </div>
+            <p class="journey-step-count"><span id="journeyStepNum">01</span> / 11</p>
+          </aside>
+
+          <div class="journey-rail" id="journeyRail">
+            <article class="journey-stop" data-year="2010" data-brand="STAMFORD ALTERNATORS">
+              <span class="journey-stop-index">01</span>
+              <div class="journey-stop-year">2010</div>
+              <p class="journey-stop-brands">STAMFORD ALTERNATORS</p>
+              <span class="journey-stop-ghost" aria-hidden="true">10</span>
+            </article>
+            <article class="journey-stop" data-year="2013" data-brand="LARSEN AND TOUBRO SWITCHGEAR">
+              <span class="journey-stop-index">02</span>
+              <div class="journey-stop-year">2013</div>
+              <p class="journey-stop-brands">LARSEN AND TOUBRO SWITCHGEAR</p>
+              <span class="journey-stop-ghost" aria-hidden="true">13</span>
+            </article>
+            <article class="journey-stop" data-year="2014" data-brand="Crompton & Greeves Motors, RR Kabel Wires and Cables, and Kirloskar Electric Ltd. Transformers.">
+              <span class="journey-stop-index">03</span>
+              <div class="journey-stop-year">2014</div>
+              <p class="journey-stop-brands">Crompton &amp; Greeves Motors, RR Kabel Wires and Cables, and Kirloskar Electric Ltd. Transformers.</p>
+              <span class="journey-stop-ghost" aria-hidden="true">14</span>
+            </article>
+            <article class="journey-stop" data-year="2015" data-brand="KOHLER Generators.">
+              <span class="journey-stop-index">04</span>
+              <div class="journey-stop-year">2015</div>
+              <p class="journey-stop-brands">KOHLER Generators.</p>
+              <span class="journey-stop-ghost" aria-hidden="true">15</span>
+            </article>
+            <article class="journey-stop" data-year="2017" data-brand="Symphony Air Coolers">
+              <span class="journey-stop-index">05</span>
+              <div class="journey-stop-year">2017</div>
+              <p class="journey-stop-brands">Symphony Air Coolers</p>
+              <span class="journey-stop-ghost" aria-hidden="true">17</span>
+            </article>
+            <article class="journey-stop" data-year="2018" data-brand="Ujaas Solar Energy Ltd.">
+              <span class="journey-stop-index">06</span>
+              <div class="journey-stop-year">2018</div>
+              <p class="journey-stop-brands">Ujaas Solar Energy Ltd.</p>
+              <span class="journey-stop-ghost" aria-hidden="true">18</span>
+            </article>
+            <article class="journey-stop" data-year="2019" data-brand="LUBI Pumps and JAQUAR Lightings.">
+              <span class="journey-stop-index">07</span>
+              <div class="journey-stop-year">2019</div>
+              <p class="journey-stop-brands">LUBI Pumps and JAQUAR Lightings.</p>
+              <span class="journey-stop-ghost" aria-hidden="true">19</span>
+            </article>
+            <article class="journey-stop" data-year="2020" data-brand="JAKSON Solar and Schneider Electric Ltd.">
+              <span class="journey-stop-index">08</span>
+              <div class="journey-stop-year">2020</div>
+              <p class="journey-stop-brands">JAKSON Solar and Schneider Electric Ltd.</p>
+              <span class="journey-stop-ghost" aria-hidden="true">20</span>
+            </article>
+            <article class="journey-stop" data-year="2021" data-brand="ANCHOR Panasonic.">
+              <span class="journey-stop-index">09</span>
+              <div class="journey-stop-year">2021</div>
+              <p class="journey-stop-brands">ANCHOR Panasonic.</p>
+              <span class="journey-stop-ghost" aria-hidden="true">21</span>
+            </article>
+            <article class="journey-stop" data-year="2022" data-brand="Jakson Cummins DG sets">
+              <span class="journey-stop-index">10</span>
+              <div class="journey-stop-year">2022</div>
+              <p class="journey-stop-brands">Jakson Cummins DG sets</p>
+              <span class="journey-stop-ghost" aria-hidden="true">22</span>
+            </article>
+            <article class="journey-stop" data-year="2023" data-brand="APAAR wires and cables">
+              <span class="journey-stop-index">11</span>
+              <div class="journey-stop-year">2023</div>
+              <p class="journey-stop-brands">APAAR wires and cables</p>
+              <span class="journey-stop-ghost" aria-hidden="true">23</span>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. PRODUCTS OVERVIEW -->
+    <section id="products" data-section="products" aria-labelledby="products-title">
+      <div class="offer-rail-wrap" id="offerRailWrap">
+        <div class="offer-rail-pin" id="offerRailPin">
+          <div class="container offer-rail-head">
+            <p class="section-label reveal from-bottom">What we’re offering</p>
+            <h2 class="section-title reveal from-bottom" id="products-title">Industries We Serve</h2>
+            <p class="section-lead reveal from-bottom">From power distribution equipment to control devices and automation solutions, we offer a wide selection of industrial electrical appliances designed to meet the most demanding requirements.</p>
+            <div class="offer-rail-meta" aria-hidden="true">
+              <span class="offer-rail-index" id="offerRailIndex">01 / 13</span>
+              <div class="offer-rail-progress"><div class="offer-rail-progress-fill" id="offerRailFill"></div></div>
+              <span class="offer-rail-hint">Scroll <span>→</span></span>
+            </div>
+          </div>
+          <div class="offer-rail-viewport" id="offerRailViewport" tabindex="0" aria-label="Product offerings carousel">
+            <div class="offer-rail-track" id="offerRailTrack">
+            <article class="offer-card">
+              <div class="offer-card-media">
+                <span class="offer-card-num">01</span>
+                <img src="https://cdn.storebox.ai/media/f2b7587c-8821-4d8b-a3a9-b53e761f5395/0594f2e8-23e3-4b1a-9eb4-218ca40d7751/d-g-set-1.jpg" alt="DG Sets">
+              </div>
+              <div class="offer-card-body">
+                <h3 class="offer-card-title">DG Sets</h3>
+                <span class="offer-card-brand">ASHOK LEYLAND</span>
+                <p class="offer-card-desc">In DG Sets, we deal with the leading brand - ASHOK LEYLAND.</p>
+                <a class="offer-card-link" href="#hl-dg">View highlight →</a>
+              </div>
+            </article>
+            <article class="offer-card">
+              <div class="offer-card-media">
+                <span class="offer-card-num">02</span>
+                <img src="https://cdn.storebox.ai/media/f2b7587c-8821-4d8b-a3a9-b53e761f5395/3a6b63a0-245e-44d8-85ac-60690837bdc3/bifacial.jpg" alt="Solar">
+              </div>
+              <div class="offer-card-body">
+                <h3 class="offer-card-title">Solar</h3>
+                <span class="offer-card-brand">JAKSON SOLAR SOLUTIONS</span>
+                <p class="offer-card-desc">In Solar Solutions we have the distribution of - JAKSON SOLAR SOLUTIONS.</p>
+                <a class="offer-card-link" href="#hl-solar">View highlight →</a>
+              </div>
+            </article>
+            <article class="offer-card">
+              <div class="offer-card-media">
+                <span class="offer-card-num">03</span>
+                <img src="https://cdn.storebox.ai/media/f2b7587c-8821-4d8b-a3a9-b53e761f5395/12fd9664-bee2-4287-92db-34f7b725b44b/air-1.jpg" alt="Industrial Air Coolers">
+              </div>
+              <div class="offer-card-body">
+                <h3 class="offer-card-title">Industrial Air Coolers</h3>
+                <span class="offer-card-brand">SYMPHONY</span>
+                <p class="offer-card-desc">In Industrial Coolers we are the Stockist of the World’s Leading Brand – SYMPHONY.</p>
+                <a class="offer-card-link" href="#hl-coolers">View highlight →</a>
+              </div>
+            </article>
+            <article class="offer-card">
+              <div class="offer-card-media">
+                <span class="offer-card-num">04</span>
+                <img src="https://cdn.storebox.ai/media/f2b7587c-8821-4d8b-a3a9-b53e761f5395/ff81136d-cb9b-4b6d-89c8-870d76e4c85e/flame-proff.jpg" alt="Motors">
+              </div>
+              <div class="offer-card-body">
+                <h3 class="offer-card-title">Motors</h3>
+                <span class="offer-card-brand">CROMPTON &amp; GREAVES</span>
+                <p class="offer-card-desc">In Motors we are the Authorised Dealer of – CROMPTON &amp; GREAVES.</p>
+                <a class="offer-card-link" href="#hl-motors">View highlight →</a>
+              </div>
+            </article>
+            <article class="offer-card">
+              <div class="offer-card-media">
+                <span class="offer-card-num">05</span>
+                <img src="https://cdn.storebox.ai/media/f2b7587c-8821-4d8b-a3a9-b53e761f5395/70b2dd05-72ad-407f-a254-d191b8db292a/monoblock-pumps.jpg" alt="Pumps">
+              </div>
+              <div class="offer-card-body">
+                <h3 class="offer-card-title">Pumps</h3>
+                <span class="offer-card-brand">LUBI · KIRLOSKER</span>
+                <p class="offer-card-desc">In Pumps, we have the distribution of LUBI Pumps and Authorised Dealer of KIRLOSKER.</p>
+                <a class="offer-card-link" href="#highlights">Explore →</a>
+              </div>
+            </article>
+            <article class="offer-card">
+              <div class="offer-card-media">
+                <span class="offer-card-num">06</span>
+                <img src="https://cdn.storebox.ai/media/f2b7587c-8821-4d8b-a3a9-b53e761f5395/a3953949-47fb-4e64-ba60-f37dfeef6d33/ups-and-servo.jpg" alt="UPS and Servo">
+              </div>
+              <div class="offer-card-body">
+                <h3 class="offer-card-title">UPS and Servo</h3>
+                <span class="offer-card-brand">NUMERIC by Legrand</span>
+                <p class="offer-card-desc">In UPS we are the Stockiest of – NUMERIC by Legrand.</p>
+                <a class="offer-card-link" href="#contact">Enquire →</a>
+              </div>
+            </article>
+            <article class="offer-card">
+              <div class="offer-card-media">
+                <span class="offer-card-num">07</span>
+                <img src="https://cdn.storebox.ai/media/f2b7587c-8821-4d8b-a3a9-b53e761f5395/2e0535c8-6f5c-44ed-a92e-683c60ac7d39/copper-armoured-cable.jpg" alt="Wires &amp; Cables">
+              </div>
+              <div class="offer-card-body">
+                <h3 class="offer-card-title">Wires &amp; Cables</h3>
+                <span class="offer-card-brand">ANCHOR · FINOLEX · APAAR</span>
+                <p class="offer-card-desc">In Wires and Cables, we are the authorised dealers of ANCHOR, FINOLEX and APAAR.</p>
+                <a class="offer-card-link" href="#contact">Enquire →</a>
+              </div>
+            </article>
+            <article class="offer-card">
+              <div class="offer-card-media">
+                <span class="offer-card-num">08</span>
+                <img src="https://cdn.storebox.ai/media/f2b7587c-8821-4d8b-a3a9-b53e761f5395/e62e6409-1a2a-41b9-83b9-483db9f8ab43/entice.jpg" alt="Switches">
+              </div>
+              <div class="offer-card-body">
+                <h3 class="offer-card-title">Switches</h3>
+                <span class="offer-card-brand">L&amp;T</span>
+                <p class="offer-card-desc">In Switches, we are the dealer of - L&amp;T.</p>
+                <a class="offer-card-link" href="#contact">Enquire →</a>
+              </div>
+            </article>
+            <article class="offer-card">
+              <div class="offer-card-media">
+                <span class="offer-card-num">09</span>
+                <img src="https://cdn.storebox.ai/media/f2b7587c-8821-4d8b-a3a9-b53e761f5395/7849f4e6-3acf-4f4e-9ada-f0a2f7950d3c/switch-gear-1.jpg" alt="Switch Gear">
+              </div>
+              <div class="offer-card-body">
+                <h3 class="offer-card-title">Switch Gear</h3>
+                <span class="offer-card-brand">L&amp;T</span>
+                <p class="offer-card-desc">In Switchgear, We are the dealer of – L&amp;T.</p>
+                <a class="offer-card-link" href="#contact">Enquire →</a>
+              </div>
+            </article>
+            <article class="offer-card">
+              <div class="offer-card-media">
+                <span class="offer-card-num">10</span>
+                <img src="https://cdn.storebox.ai/media/f2b7587c-8821-4d8b-a3a9-b53e761f5395/bea97edb-76b1-4892-a3f3-39926b758017/flood-light.jpg" alt="Lighting">
+              </div>
+              <div class="offer-card-body">
+                <h3 class="offer-card-title">Lighting</h3>
+                <span class="offer-card-brand">JAQUAR</span>
+                <p class="offer-card-desc">In Lighting Solutions – We are the authorised dealer of JAQUAR.</p>
+                <a class="offer-card-link" href="#contact">Enquire →</a>
+              </div>
+            </article>
+            <article class="offer-card">
+              <div class="offer-card-media">
+                <span class="offer-card-num">11</span>
+                <img src="https://cdn.storebox.ai/media/f2b7587c-8821-4d8b-a3a9-b53e761f5395/39c4043e-8234-46df-a52a-a3df5353f284/transformer.jpg" alt="Transformer">
+              </div>
+              <div class="offer-card-body">
+                <h3 class="offer-card-title">Transformer</h3>
+                <span class="offer-card-brand">SCHNIEDER · KIRLOSKER · POWER STAR</span>
+                <p class="offer-card-desc">Whenever any industry is set up the first requirement that comes to mind is TRANSFORMER. For that, we deal with SCHNIEDER ELECTRIC, KIRLOSKER AND POWER STAR.</p>
+                <a class="offer-card-link" href="#contact">Enquire →</a>
+              </div>
+            </article>
+            <article class="offer-card">
+              <div class="offer-card-media">
+                <span class="offer-card-num">12</span>
+                <img src="https://cdn.storebox.ai/media/f2b7587c-8821-4d8b-a3a9-b53e761f5395/bb094dbc-ea69-43d3-9b36-b9d566eb4023/vcb.jpg" alt="VCB">
+              </div>
+              <div class="offer-card-body">
+                <h3 class="offer-card-title">VCB</h3>
+                <span class="offer-card-brand">KIRLOSKER · SCHNIEDER ELECTRIC</span>
+                <p class="offer-card-desc">Vacuum Circuit Breaker Is An Automatically Operated Electrical Switch Designed To Protect An Electrical Circuit From Damage Caused By Overload Or Short Circuits in which we deals in – KIRLOSKER and SCHNIEDER ELECTRIC.</p>
+                <a class="offer-card-link" href="#contact">Enquire →</a>
+              </div>
+            </article>
+            <article class="offer-card">
+              <div class="offer-card-media">
+                <span class="offer-card-num">13</span>
+                <img src="https://cdn.storebox.ai/media/f2b7587c-8821-4d8b-a3a9-b53e761f5395/6aef25b7-0814-47cc-928d-c14c5e601ebb/aria-1.jpg" alt="Air Screw Compressor">
+              </div>
+              <div class="offer-card-body">
+                <h3 class="offer-card-title">Air Screw Compressor</h3>
+                <span class="offer-card-brand">Kirloskar ARiA</span>
+                <p class="offer-card-desc">Kirloskar's ARiA oil-injected screw compressors are specifically designed for India's tropical conditions.</p>
+                <a class="offer-card-link" href="#contact">Enquire →</a>
+              </div>
+            </article>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. PRODUCT HIGHLIGHTS -->
+    <section id="highlights" aria-label="Product highlights">
+      <article class="hl-chapter" id="hl-dg">
+        <div class="hl-banner">
+          <img src="https://cdn.storebox.ai/media/f2b7587c-8821-4d8b-a3a9-b53e761f5395/0594f2e8-23e3-4b1a-9eb4-218ca40d7751/d-g-set-1.jpg" alt="Ashok Leyland DG Sets">
+          <div class="hl-banner-content">
+            <div>
+              <span class="hl-brand">Ashok Leyland</span>
+              <h2>D G Sets</h2>
+            </div>
+            <span class="hl-chapter-num" aria-hidden="true">01</span>
+          </div>
+        </div>
+        <div class="hl-body">
+          <div class="hl-intro">
+            <p class="section-label">Product Highlight</p>
+            <p>As a trusted dealer for ASHOK LEYLAND D G SETS, Adarsh Group ensures reliable power solutions for diverse industrial needs. Our D G SETS boast cutting-edge technology, robust construction, and unmatched performance, guaranteeing uninterrupted power supply even in the most demanding conditions.</p>
+            <p>Whether for backup power in critical applications or primary power in remote locations, Adarsh Group's D G SETS deliver unparalleled reliability, efficiency, and durability.</p>
+          </div>
+          <div class="hl-specs">
+            <div class="hl-spec reveal from-bottom">
+              <img class="hl-spec-media" src="https://cdn.storebox.ai/media/f2b7587c-8821-4d8b-a3a9-b53e761f5395/0594f2e8-23e3-4b1a-9eb4-218ca40d7751/d-g-set-1.jpg" alt="Ashok Leyland DG Set 7.5-40 KVA">
+              <h3>7.5 KVA – 40 KVA</h3>
+              <ul>
+                <li>Latest CPCB 4.</li>
+                <li>5 Year 5C Warranty.</li>
+                <li>Ready Delivery.</li>
+                <li>Proper After Sales Service.</li>
+              </ul>
+            </div>
+            <div class="hl-spec reveal from-bottom">
+              <img class="hl-spec-media" src="https://cdn.storebox.ai/media/f2b7587c-8821-4d8b-a3a9-b53e761f5395/0594f2e8-23e3-4b1a-9eb4-218ca40d7751/d-g-set-1.jpg" alt="Ashok Leyland DG Set 50-250 KVA">
+              <h3>50 KVA – 250 KVA</h3>
+              <ul>
+                <li>Latest CPCB 4.</li>
+                <li>5 Year 5C Warranty.</li>
+                <li>Ready Delivery.</li>
+                <li>Proper After Sales Service.</li>
+              </ul>
+            </div>
+            <div class="hl-spec reveal from-bottom">
+              <img class="hl-spec-media" src="https://cdn.storebox.ai/media/f2b7587c-8821-4d8b-a3a9-b53e761f5395/0594f2e8-23e3-4b1a-9eb4-218ca40d7751/d-g-set-1.jpg" alt="Ashok Leyland DG Set 300-1500 KVA">
+              <h3>300 KVA – 1500 KVA</h3>
+              <ul>
+                <li>Latest CPCB 4.</li>
+                <li>5 Year 5C Warranty.</li>
+                <li>Ready Delivery.</li>
+                <li>Proper After Sales Service.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="hl-chapter" id="hl-solar">
+        <div class="hl-banner">
+          <img src="https://cdn.storebox.ai/media/f2b7587c-8821-4d8b-a3a9-b53e761f5395/3a6b63a0-245e-44d8-85ac-60690837bdc3/bifacial.jpg" alt="Jakson Solar Solutions">
+          <div class="hl-banner-content">
+            <div>
+              <span class="hl-brand">Jakson Solar</span>
+              <h2>Solar Solutions</h2>
+            </div>
+            <span class="hl-chapter-num" aria-hidden="true">02</span>
+          </div>
+        </div>
+        <div class="hl-body">
+          <div class="hl-intro">
+            <p class="section-label">Product Highlight</p>
+            <p>Introducing our latest addition to the Adarsh Group product lineup: Solar Solutions. In alignment with India's modernization drive, we proudly offer solar panels catering to both domestic and industrial markets.</p>
+            <p>As authorized dealers with JAKSON, a renowned name in the solar industry, we guarantee top-notch quality and reliability. Harness the power of the sun with Adarsh Group's solar solutions – your pathway to sustainable energy and a greener future.</p>
+          </div>
+          <div class="hl-specs">
+            <div class="hl-spec reveal from-bottom">
+              <img class="hl-spec-media" src="https://cdn.storebox.ai/media/f2b7587c-8821-4d8b-a3a9-b53e761f5395/3a6b63a0-245e-44d8-85ac-60690837bdc3/bifacial.jpg" alt="Bifacial solar modules">
+              <h3>BIFACIAL DCR / NDCR</h3>
+              <ul>
+                <li>Low LID Degradation using PERC Technology</li>
+                <li>Improved Temperature Coefficients</li>
+                <li>Reduced Resistive Loss with MBB Technology</li>
+              </ul>
+            </div>
+            <div class="hl-spec reveal from-bottom">
+              <img class="hl-spec-media" src="https://cdn.storebox.ai/media/f2b7587c-8821-4d8b-a3a9-b53e761f5395/401cd21b-e8d4-4d66-bac2-432a6ac849e8/topcon.jpg" alt="TOPCON N Type modules">
+              <h3>TOPCON N TYPE</h3>
+              <ul>
+                <li>Enhanced Power Generation During its Life Cycle</li>
+                <li>Better Generation at Higher Temperature</li>
+                <li>Excellent Module Performance</li>
+              </ul>
+            </div>
+            <div class="hl-spec reveal from-bottom">
+              <img class="hl-spec-media" src="https://cdn.storebox.ai/media/f2b7587c-8821-4d8b-a3a9-b53e761f5395/807cab7c-00eb-45c4-a247-f2ce000737d1/inverters.jpg" alt="Solar inverters">
+              <h3>INVERTERS</h3>
+              <ul>
+                <li>Topology: Transformerless</li>
+                <li>Display: OLED/LED with touch button</li>
+                <li>Max. DC Overloading: Up to 50%*</li>
+                <li>Warranty: 5 Years / 7 Years / 10 years</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="hl-chapter" id="hl-coolers">
+        <div class="hl-banner">
+          <img src="https://cdn.storebox.ai/media/f2b7587c-8821-4d8b-a3a9-b53e761f5395/12fd9664-bee2-4287-92db-34f7b725b44b/air-1.jpg" alt="Symphony Industrial Air Coolers">
+          <div class="hl-banner-content">
+            <div>
+              <span class="hl-brand">Symphony</span>
+              <h2>Industrial Air Coolers</h2>
+            </div>
+            <span class="hl-chapter-num" aria-hidden="true">03</span>
+          </div>
+        </div>
+        <div class="hl-body">
+          <div class="hl-intro">
+            <p class="section-label">Product Highlight</p>
+            <p>Introducing our range of Industrial Air Coolers, designed to revolutionize cooling solutions in the industrial sector. As a cost-effective alternative to traditional air conditioning systems, our industrial air coolers offer efficient and reliable cooling while significantly reducing operational costs.</p>
+            <p>Partnering with Symphony, a leading brand renowned for its innovative cooling solutions, we bring you cutting-edge technology that ensures superior performance and durability.</p>
+          </div>
+          <div class="hl-specs">
+            <div class="hl-spec reveal from-bottom">
+              <img class="hl-spec-media" src="https://cdn.storebox.ai/media/f2b7587c-8821-4d8b-a3a9-b53e761f5395/12fd9664-bee2-4287-92db-34f7b725b44b/air-1.jpg" alt="MOVICOOL DD125">
+              <h3>MOVICOOL DD125</h3>
+              <ul>
+                <li>Two cooling units for uniform wide area cooling.</li>
+                <li>Powerful 20m / 20m air throw for faster cooling.</li>
+                <li>3-side high efficiency honeycomb cooling.</li>
+                <li>Robust weather resistant body for long life.</li>
+              </ul>
+            </div>
+            <div class="hl-spec reveal from-bottom">
+              <img class="hl-spec-media" src="https://cdn.storebox.ai/media/f2b7587c-8821-4d8b-a3a9-b53e761f5395/d7276919-038e-478e-a784-2d89e838b16e/air-2.jpg" alt="MOVICOOL XL series">
+              <h3>MOVICOOL XL 100 / XL 200</h3>
+              <ul>
+                <li>Powerful 21m air throw for faster cooling.</li>
+                <li>3-side high efficiency honeycomb cooling.</li>
+                <li>Pads for superior cooling.</li>
+                <li>Robust weather resistant body for long life.</li>
+              </ul>
+            </div>
+            <div class="hl-spec reveal from-bottom">
+              <img class="hl-spec-media" src="https://cdn.storebox.ai/media/f2b7587c-8821-4d8b-a3a9-b53e761f5395/1343400e-af56-4e5b-9f88-ef6f42ff79b0/air-7.jpg" alt="VENTI-COOL units">
+              <h3>VENTI-COOL 8U – 25U</h3>
+              <ul>
+                <li>Modular units suitable for any area.</li>
+                <li>One unit can cool up to 500–1600 sq.ft.*</li>
+                <li>Cool Flow Dispenser for enhanced cooling.</li>
+                <li>Weather resistant UV Stabilized high grade plastic body.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="hl-chapter" id="hl-motors">
+        <div class="hl-banner">
+          <img src="https://cdn.storebox.ai/media/f2b7587c-8821-4d8b-a3a9-b53e761f5395/ff81136d-cb9b-4b6d-89c8-870d76e4c85e/flame-proff.jpg" alt="Crompton and Greaves Motors">
+          <div class="hl-banner-content">
+            <div>
+              <span class="hl-brand">Crompton &amp; Greaves</span>
+              <h2>Motors</h2>
+            </div>
+            <span class="hl-chapter-num" aria-hidden="true">04</span>
+          </div>
+        </div>
+        <div class="hl-body">
+          <div class="hl-intro">
+            <p class="section-label">Product Highlight</p>
+            <p>At Adarsh Group, we take pride in offering top-of-the-line motors from the leading brand, Crompton &amp; Greaves. Renowned for their reliability, efficiency, and performance, Crompton &amp; Greaves motors are trusted by industries worldwide.</p>
+            <p>With features such as high efficiency, low noise, and easy maintenance, these motors are designed to meet the demanding needs of modern industries.</p>
+          </div>
+          <div class="hl-specs">
+            <div class="hl-spec reveal from-bottom">
+              <img class="hl-spec-media" src="https://cdn.storebox.ai/media/f2b7587c-8821-4d8b-a3a9-b53e761f5395/ff81136d-cb9b-4b6d-89c8-870d76e4c85e/flame-proff.jpg" alt="Flame proof motors">
+              <h3>FLAME PROFF</h3>
+              <ul>
+                <li>Rating : 0.37kW to 450Kw</li>
+                <li>Voltage : 415V, Other on request</li>
+                <li>Degree of protection : IP55</li>
+                <li>Gas : Group I, IIA, IIB, IIC, Dust Proof IIIC</li>
+              </ul>
+            </div>
+            <div class="hl-spec reveal from-bottom">
+              <img class="hl-spec-media" src="https://cdn.storebox.ai/media/f2b7587c-8821-4d8b-a3a9-b53e761f5395/3f66f278-4017-45bd-a401-afd466e76e78/aluminium-motors.jpg" alt="Aluminium motors">
+              <h3>ALUMINIUM MOTORS</h3>
+              <ul>
+                <li>Rating : 0.12kw to 9.3kw</li>
+                <li>Frame : 63 to 132</li>
+                <li>Pole : 2/4/6/8</li>
+                <li>Mounting : Foot/Flange Face</li>
+              </ul>
+            </div>
+            <div class="hl-spec reveal from-bottom">
+              <img class="hl-spec-media" src="https://cdn.storebox.ai/media/f2b7587c-8821-4d8b-a3a9-b53e761f5395/56348cce-f068-4632-9640-de4adebf65ed/crane-duty-motors.jpg" alt="Crane duty motors">
+              <h3>CRANE DUTY MOTORS</h3>
+              <ul>
+                <li>Rating : 0.25kW to 350kW, 2.2kW to 450kW</li>
+                <li>Frame : 71 to 450, 132 to 450</li>
+                <li>Pole : 4/6/8</li>
+                <li>Degree of protection : IP55</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <!-- 6. METRICS -->
+    <section id="metrics" data-section="metrics" aria-label="Key numbers">
+      <div class="container">
+        <div class="metrics-grid">
+          <div>
+            <div class="metric-value" data-count="30" data-suffix="+">0</div>
+            <div class="metric-label">Years of Experience</div>
+          </div>
+          <div>
+            <div class="metric-value" data-count="5000" data-suffix="+">0</div>
+            <div class="metric-label">Products Served</div>
+          </div>
+          <div>
+            <div class="metric-value" data-count="7000" data-suffix="+">0</div>
+            <div class="metric-label">Customers Served</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. CLIENTS -->
+    <section id="clients" data-section="clients" aria-labelledby="clients-title">
+      <div class="container">
+        <p class="section-label reveal from-bottom">Our Esteemed Cliental</p>
+        <h2 class="section-title reveal from-bottom" id="clients-title">Companies we have served</h2>
+      </div>
+      <div class="clients-marquee" aria-hidden="true">
+        <div class="clients-track" id="clientsTrack">
+          <!-- logos duplicated in JS for seamless loop; static set here -->
+          <div class="client-logo"><img src="https://cdn.storebox.ai/media/f2b7587c-8821-4d8b-a3a9-b53e761f5395/f1db28f4-5ae9-4327-b9c4-993876822754/client-1.png" alt=""></div>
+          <div class="client-logo"><img src="https://cdn.storebox.ai/media/f2b7587c-8821-4d8b-a3a9-b53e761f5395/ee903f71-ed97-41cb-bfd3-6c95bd8707c4/client-2.png" alt=""></div>
+          <div class="client-logo"><img src="https://cdn.storebox.ai/media/f2b7587c-8821-4d8b-a3a9-b53e761f5395/bfcf17a9-486b-4fa3-b2ec-c4516ff0a2f4/client-3.png" alt=""></div>
+          <div class="client-logo"><img src="https://cdn.storebox.ai/media/f2b7587c-8821-4d8b-a3a9-b53e761f5395/4bd1a682-4d8e-4176-aa7f-20959d5507c8/client-4.png" alt=""></div>
+          <div class="client-logo"><img src="https://cdn.storebox.ai/media/f2b7587c-8821-4d8b-a3a9-b53e761f5395/30a717ef-c136-4bb4-a442-205a938ef25a/client-5.png" alt=""></div>
+          <div class="client-logo"><img src="https://cdn.storebox.ai/media/f2b7587c-8821-4d8b-a3a9-b53e761f5395/a291075e-41b7-414a-8610-1dc8176260ce/client-6.png" alt=""></div>
+          <div class="client-logo"><img src="https://cdn.storebox.ai/media/f2b7587c-8821-4d8b-a3a9-b53e761f5395/0087bccb-1df2-4509-80ee-507fb9bb8026/client-7.png" alt=""></div>
+          <div class="client-logo"><img src="https://cdn.storebox.ai/media/f2b7587c-8821-4d8b-a3a9-b53e761f5395/f010d3b7-3fae-4578-b04b-fe8c4c294fa9/client-8.png" alt=""></div>
+          <div class="client-logo"><img src="https://cdn.storebox.ai/media/f2b7587c-8821-4d8b-a3a9-b53e761f5395/5462ff88-c4d1-4f98-b9ae-c427fc9945d3/client-9.png" alt=""></div>
+          <div class="client-logo"><img src="https://cdn.storebox.ai/media/f2b7587c-8821-4d8b-a3a9-b53e761f5395/7e7a00b4-9f8e-40af-8183-7948fe877826/client-10.png" alt=""></div>
+          <div class="client-logo"><img src="https://cdn.storebox.ai/media/f2b7587c-8821-4d8b-a3a9-b53e761f5395/52fc5184-c8b7-49c2-8563-5d29348bfeeb/client-11.png" alt=""></div>
+          <div class="client-logo"><img src="https://cdn.storebox.ai/media/f2b7587c-8821-4d8b-a3a9-b53e761f5395/e06ac06d-47c4-402e-ad5f-926afa0a8655/client-12.png" alt=""></div>
+          <div class="client-logo"><img src="https://cdn.storebox.ai/media/f2b7587c-8821-4d8b-a3a9-b53e761f5395/37c226f4-56b7-4394-a068-619b018b53cf/client-13.png" alt=""></div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="clients-grid" role="list">
+          <div class="client-logo reveal scale-in" role="listitem"><img src="https://cdn.storebox.ai/media/f2b7587c-8821-4d8b-a3a9-b53e761f5395/f1db28f4-5ae9-4327-b9c4-993876822754/client-1.png" alt="Client logo"></div>
+          <div class="client-logo reveal scale-in" role="listitem"><img src="https://cdn.storebox.ai/media/f2b7587c-8821-4d8b-a3a9-b53e761f5395/ee903f71-ed97-41cb-bfd3-6c95bd8707c4/client-2.png" alt="Client logo"></div>
+          <div class="client-logo reveal scale-in" role="listitem"><img src="https://cdn.storebox.ai/media/f2b7587c-8821-4d8b-a3a9-b53e761f5395/bfcf17a9-486b-4fa3-b2ec-c4516ff0a2f4/client-3.png" alt="Client logo"></div>
+          <div class="client-logo reveal scale-in" role="listitem"><img src="https://cdn.storebox.ai/media/f2b7587c-8821-4d8b-a3a9-b53e761f5395/4bd1a682-4d8e-4176-aa7f-20959d5507c8/client-4.png" alt="Client logo"></div>
+          <div class="client-logo reveal scale-in" role="listitem"><img src="https://cdn.storebox.ai/media/f2b7587c-8821-4d8b-a3a9-b53e761f5395/30a717ef-c136-4bb4-a442-205a938ef25a/client-5.png" alt="Client logo"></div>
+          <div class="client-logo reveal scale-in" role="listitem"><img src="https://cdn.storebox.ai/media/f2b7587c-8821-4d8b-a3a9-b53e761f5395/a291075e-41b7-414a-8610-1dc8176260ce/client-6.png" alt="Client logo"></div>
+          <div class="client-logo reveal scale-in" role="listitem"><img src="https://cdn.storebox.ai/media/f2b7587c-8821-4d8b-a3a9-b53e761f5395/0087bccb-1df2-4509-80ee-507fb9bb8026/client-7.png" alt="Client logo"></div>
+          <div class="client-logo reveal scale-in" role="listitem"><img src="https://cdn.storebox.ai/media/f2b7587c-8821-4d8b-a3a9-b53e761f5395/f010d3b7-3fae-4578-b04b-fe8c4c294fa9/client-8.png" alt="Client logo"></div>
+          <div class="client-logo reveal scale-in" role="listitem"><img src="https://cdn.storebox.ai/media/f2b7587c-8821-4d8b-a3a9-b53e761f5395/5462ff88-c4d1-4f98-b9ae-c427fc9945d3/client-9.png" alt="Client logo"></div>
+          <div class="client-logo reveal scale-in" role="listitem"><img src="https://cdn.storebox.ai/media/f2b7587c-8821-4d8b-a3a9-b53e761f5395/7e7a00b4-9f8e-40af-8183-7948fe877826/client-10.png" alt="Client logo"></div>
+          <div class="client-logo reveal scale-in" role="listitem"><img src="https://cdn.storebox.ai/media/f2b7587c-8821-4d8b-a3a9-b53e761f5395/52fc5184-c8b7-49c2-8563-5d29348bfeeb/client-11.png" alt="Client logo"></div>
+          <div class="client-logo reveal scale-in" role="listitem"><img src="https://cdn.storebox.ai/media/f2b7587c-8821-4d8b-a3a9-b53e761f5395/e06ac06d-47c4-402e-ad5f-926afa0a8655/client-12.png" alt="Client logo"></div>
+          <div class="client-logo reveal scale-in" role="listitem"><img src="https://cdn.storebox.ai/media/f2b7587c-8821-4d8b-a3a9-b53e761f5395/37c226f4-56b7-4394-a068-619b018b53cf/client-13.png" alt="Client logo"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. AWARDS -->
+    <section id="awards" data-section="awards" aria-labelledby="awards-title">
+      <div class="container">
+        <p class="section-label reveal from-bottom">Awards &amp; Certifications</p>
+        <h2 class="section-title reveal from-bottom" id="awards-title">Recognizing Excellence</h2>
+        <div class="awards-grid">
+          <figure class="award-card reveal scale-in">
+            <img src="https://cdn.storebox.ai/media/f2b7587c-8821-4d8b-a3a9-b53e761f5395/7cb7e6e0-b2d2-4d16-b600-a30fd4c42961/award-1.jpg" alt="Award recognition 1">
+            <figcaption>Award &amp; Recognition</figcaption>
+          </figure>
+          <figure class="award-card reveal scale-in">
+            <img src="https://cdn.storebox.ai/media/f2b7587c-8821-4d8b-a3a9-b53e761f5395/f964390a-30bd-4253-ae85-61552b59fffb/award-2.jpg" alt="Award recognition 2">
+            <figcaption>Award &amp; Recognition</figcaption>
+          </figure>
+          <figure class="award-card reveal scale-in">
+            <img src="https://cdn.storebox.ai/media/f2b7587c-8821-4d8b-a3a9-b53e761f5395/e89a72ae-70c1-4520-9f92-3e0abbbb999b/award-3.jpg" alt="Award recognition 3">
+            <figcaption>Award &amp; Recognition</figcaption>
+          </figure>
+          <figure class="award-card reveal scale-in">
+            <img src="https://cdn.storebox.ai/media/f2b7587c-8821-4d8b-a3a9-b53e761f5395/9bd6d124-21ad-4a38-bd1c-a9944e6ba9d1/award-4.jpg" alt="Award recognition 4">
+            <figcaption>Certification</figcaption>
+          </figure>
+          <figure class="award-card reveal scale-in">
+            <img src="https://cdn.storebox.ai/media/f2b7587c-8821-4d8b-a3a9-b53e761f5395/ff40d708-0d32-40ba-89c6-4917a4725f35/award-5.jpg" alt="Award recognition 5">
+            <figcaption>Certification</figcaption>
+          </figure>
+          <figure class="award-card reveal scale-in">
+            <img src="https://cdn.storebox.ai/media/f2b7587c-8821-4d8b-a3a9-b53e761f5395/6766c72f-a232-4fe3-8280-488451c37119/award-6.jpg" alt="Award recognition 6">
+            <figcaption>Certification</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. CONTACT -->
+    <section id="contact" data-section="contact" aria-labelledby="contact-title">
+      <div class="contact-bridge">
+        <div class="contact-head reveal from-bottom">
+          <div>
+            <p class="section-label">Get In Touch</p>
+            <h2 class="section-title" id="contact-title">Contact &amp; Offices</h2>
+          </div>
+          <div class="contact-head-side">
+            <p class="contact-trust">Your Trusted Partner in Industrial Solutions. Excellence, Innovation, Reliability — We Power Progress Together.</p>
+            <div class="contact-email-block">
+              <span>Email</span>
+              <a class="contact-link" href="mailto:info@adarsh-industries.com">info@adarsh-industries.com</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="reveal from-bottom">
+          <p class="contact-hotline-label">Call Us</p>
+          <div class="contact-hotline">
+            <a class="contact-phone contact-link" href="tel:+919935577331">
+              <span class="contact-phone-num">+91-9935577331</span>
+              <span class="contact-phone-mark">Call</span>
+            </a>
+            <a class="contact-phone contact-link" href="tel:+918726045551">
+              <span class="contact-phone-num">+91-8726045551</span>
+              <span class="contact-phone-mark">Call</span>
+            </a>
+            <a class="contact-phone contact-link" href="tel:+918726045552">
+              <span class="contact-phone-num">+91-8726045552</span>
+              <span class="contact-phone-mark">Call</span>
+            </a>
+            <a class="contact-phone contact-link" href="tel:+918726045553">
+              <span class="contact-phone-num">+91-8726045553</span>
+              <span class="contact-phone-mark">Call</span>
+            </a>
+            <a class="contact-phone contact-link" href="tel:+918726045554">
+              <span class="contact-phone-num">+91-8726045554</span>
+              <span class="contact-phone-mark">Call</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="contact-split">
+          <div class="contact-side">
+            <div class="contact-offices">
+              <article class="contact-office reveal from-bottom">
+                <h3>Head Office</h3>
+                <p>118/202-A, Kaushalpuri, Kanpur - 208012</p>
+              </article>
+              <article class="contact-office reveal from-bottom">
+                <h3>Sales Office</h3>
+                <p>77/148-B, Latouche Road, Near Fire Station, Kanpur - 208001</p>
+              </article>
+            </div>
+          </div>
+
+          <form class="contact-compose reveal from-bottom" id="contactForm" action="#" method="get" onsubmit="return false;">
+            <h3>Send a Message</h3>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" placeholder="Your name" autocomplete="name">
+              </div>
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="you@example.com" autocomplete="email">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone</label>
+              <input type="tel" id="phone" name="phone" placeholder="+91" autocomplete="tel">
+            </div>
+            <div class="form-group form-message">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" placeholder="How can we help?"></textarea>
+            </div>
+            <button type="submit" class="btn-submit">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© Copyright 2024 | Adarsh Industries | All Right Reserved</p>
+    </div>
+  </footer>
+
+  <button class="back-top" id="backTop" aria-label="Back to top" title="Back to top">↑</button>
+
+  <script>
+    (function () {
+      "use strict";
+
+      document.documentElement.classList.add("js");
+
+      var header = document.getElementById("siteHeader");
+      var heroSection = document.getElementById("home");
+      var heroBg = document.getElementById("heroBg");
+      var heroMediaImg = document.getElementById("heroMediaImg");
+      var heroContent = document.getElementById("heroContent");
+      var backTop = document.getElementById("backTop");
+
+      if (heroSection) {
+        requestAnimationFrame(function () {
+          heroSection.classList.add("is-ready");
+        });
+      }
+      var navToggle = document.getElementById("navToggle");
+      var navMobile = document.getElementById("navMobile");
+      var offerRailWrap = document.getElementById("offerRailWrap");
+      var offerRailPin = document.getElementById("offerRailPin");
+      var offerRailTrack = document.getElementById("offerRailTrack");
+      var offerRailViewport = document.getElementById("offerRailViewport");
+      var offerRailFill = document.getElementById("offerRailFill");
+      var offerRailIndex = document.getElementById("offerRailIndex");
+      var clientsTrack = document.getElementById("clientsTrack");
+      var clientsSection = document.getElementById("clients");
+      var metricsSection = document.getElementById("metrics");
+
+      var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      var ticking = false;
+      var metricsDone = false;
+      var marqueeOffset = 0;
+      var marqueeHalf = 0;
+      var marqueeReady = false;
+
+      /* Mobile nav */
+      if (navToggle && navMobile) {
+        navToggle.addEventListener("click", function () {
+          var open = navMobile.classList.toggle("open");
+          navToggle.classList.toggle("open", open);
+          navToggle.setAttribute("aria-expanded", open ? "true" : "false");
+          navToggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+        });
+        navMobile.querySelectorAll("a").forEach(function (link) {
+          link.addEventListener("click", function () {
+            navMobile.classList.remove("open");
+            navToggle.classList.remove("open");
+            navToggle.setAttribute("aria-expanded", "false");
+          });
+        });
+      }
+
+      /* Active nav highlighting */
+      var sectionIds = ["home", "about", "journey", "products", "clients", "awards", "contact"];
+      var navLinks = document.querySelectorAll("[data-nav]");
+
+      function setActiveNav(id) {
+        navLinks.forEach(function (link) {
+          link.classList.toggle("active", link.getAttribute("data-nav") === id);
+        });
+      }
+
+      var sectionObserver = new IntersectionObserver(
+        function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              var id = entry.target.getAttribute("data-section") || entry.target.id;
+              if (sectionIds.indexOf(id) !== -1) setActiveNav(id);
+            }
+          });
+        },
+        { rootMargin: "-40% 0px -45% 0px", threshold: 0 }
+      );
+
+      sectionIds.forEach(function (id) {
+        var el = document.getElementById(id);
+        if (el) sectionObserver.observe(el);
+      });
+
+      /* Reveal on scroll */
+      var revealEls = document.querySelectorAll(".reveal");
+      var revealObserver = new IntersectionObserver(
+        function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("animate-in");
+              revealObserver.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.12, rootMargin: "0px 0px -40px 0px" }
+      );
+
+      revealEls.forEach(function (el, i) {
+        el.style.transitionDelay = (i % 6) * 0.05 + "s";
+        revealObserver.observe(el);
+      });
+
+      /* Offer horizontal cinema rail */
+      var offerX = 0;
+      var offerTargetX = 0;
+      var offerMaxX = 0;
+      var offerMobile = false;
+      var offerCards = offerRailTrack
+        ? offerRailTrack.querySelectorAll(".offer-card")
+        : [];
+      var offerTotal = offerCards.length;
+
+      function offerIsMobile() {
+        return window.matchMedia("(max-width: 768px)").matches;
+      }
+
+      function offerClamp(n, min, max) {
+        return Math.min(Math.max(n, min), max);
+      }
+
+      function offerMeasure() {
+        if (!offerRailWrap || !offerRailPin || !offerRailTrack || !offerRailViewport) return;
+        offerMobile = offerIsMobile();
+        offerMaxX = Math.max(0, offerRailTrack.scrollWidth - offerRailViewport.clientWidth);
+
+        if (offerMobile || reduceMotion) {
+          offerRailWrap.style.height = "";
+          offerRailTrack.style.transform = "";
+          offerX = 0;
+          offerTargetX = 0;
+          return;
+        }
+
+        var pinH = offerRailPin.offsetHeight;
+        offerRailWrap.style.height = pinH + offerMaxX + "px";
+      }
+
+      function offerUpdateUI(progress) {
+        if (offerRailFill) offerRailFill.style.width = progress * 100 + "%";
+        if (offerRailIndex && offerTotal) {
+          var idx = Math.min(
+            offerTotal - 1,
+            Math.round(progress * (offerTotal - 1))
+          );
+          var n = String(idx + 1);
+          if (n.length < 2) n = "0" + n;
+          offerRailIndex.textContent = n + " / " + (offerTotal < 10 ? "0" + offerTotal : offerTotal);
+          offerCards.forEach(function (card, i) {
+            card.classList.toggle("is-active", i === idx);
+          });
+        }
+      }
+
+      function offerSyncFromScroll() {
+        if (!offerRailWrap || offerMobile || reduceMotion) return;
+        var wrapTop = offerRailWrap.getBoundingClientRect().top;
+        var scrollable = Math.max(1, offerRailWrap.offsetHeight - offerRailPin.offsetHeight);
+        var progress = offerClamp(-wrapTop / scrollable, 0, 1);
+        offerTargetX = progress * offerMaxX;
+      }
+
+      function offerTick() {
+        if (!offerRailTrack || offerMobile || reduceMotion) return;
+        offerX += (offerTargetX - offerX) * (reduceMotion ? 1 : 0.14);
+        if (Math.abs(offerTargetX - offerX) < 0.15) offerX = offerTargetX;
+        offerRailTrack.style.transform = "translate3d(" + -offerX + "px, 0, 0)";
+        var progress = offerMaxX > 0 ? offerX / offerMaxX : 0;
+        offerUpdateUI(progress);
+      }
+
+      function offerSyncMobileProgress() {
+        if (!offerMobile || !offerRailViewport || !offerMaxX) return;
+        var progress = offerClamp(offerRailViewport.scrollLeft / offerMaxX, 0, 1);
+        offerUpdateUI(progress);
+      }
+
+      (function initOfferRail() {
+        if (!offerRailWrap || !offerRailTrack) return;
+
+        var railObs = new IntersectionObserver(
+          function (entries) {
+            entries.forEach(function (entry) {
+              if (!entry.isIntersecting) return;
+              offerCards.forEach(function (card, i) {
+                if (reduceMotion) {
+                  card.classList.add("is-in");
+                } else {
+                  setTimeout(function () {
+                    card.classList.add("is-in");
+                  }, i * 55);
+                }
+              });
+              railObs.unobserve(offerRailWrap);
+            });
+          },
+          { threshold: 0.15 }
+        );
+        railObs.observe(offerRailWrap);
+
+        if (offerRailViewport) {
+          offerRailViewport.addEventListener(
+            "scroll",
+            function () {
+              if (offerMobile) offerSyncMobileProgress();
+            },
+            { passive: true }
+          );
+        }
+
+        function remountMeasure() {
+          offerMeasure();
+          offerSyncFromScroll();
+          if (offerMobile) offerSyncMobileProgress();
+          else offerTick();
+        }
+
+        remountMeasure();
+        window.addEventListener("load", remountMeasure);
+        window.addEventListener("resize", remountMeasure, { passive: true });
+      })();
+
+      /* Journey sticky year + stop reveals */
+      (function initJourney() {
+        var stops = document.querySelectorAll(".journey-stop");
+        var rail = document.getElementById("journeyRail");
+        var yearEl = document.getElementById("journeyActiveYear");
+        var brandEl = document.getElementById("journeyActiveBrand");
+        var fillEl = document.getElementById("journeyProgressFill");
+        var stepEl = document.getElementById("journeyStepNum");
+        if (!stops.length || !yearEl) return;
+
+        var total = stops.length;
+        var activeIndex = 0;
+        var yearTimer = null;
+        var mobileMq = window.matchMedia("(max-width: 768px)");
+        var stopActiveObs = null;
+
+        function isJourneyMobile() {
+          return mobileMq.matches;
+        }
+
+        function setActive(index) {
+          if (index < 0 || index >= total) return;
+          if (index === activeIndex && stops[index].classList.contains("is-active")) return;
+          activeIndex = index;
+          stops.forEach(function (stop, i) {
+            stop.classList.toggle("is-active", i === index);
+          });
+
+          var stop = stops[index];
+          var year = stop.getAttribute("data-year") || "";
+          var brand = stop.getAttribute("data-brand") || "";
+
+          if (!reduceMotion) {
+            yearEl.classList.add("is-updating");
+            clearTimeout(yearTimer);
+            yearTimer = setTimeout(function () {
+              yearEl.textContent = year;
+              if (brandEl) brandEl.textContent = brand;
+              yearEl.classList.remove("is-updating");
+            }, 140);
+          } else {
+            yearEl.textContent = year;
+            if (brandEl) brandEl.textContent = brand;
+          }
+
+          if (fillEl) fillEl.style.width = ((index + 1) / total) * 100 + "%";
+          if (stepEl) stepEl.textContent = (index + 1 < 10 ? "0" : "") + (index + 1);
+        }
+
+        function nearestStopIndex() {
+          if (!rail || !stops.length) return 0;
+          var railRect = rail.getBoundingClientRect();
+          var anchor = railRect.left + Math.min(40, railRect.width * 0.12);
+          var best = 0;
+          var bestDist = Infinity;
+          stops.forEach(function (stop, i) {
+            var dist = Math.abs(stop.getBoundingClientRect().left - anchor);
+            if (dist < bestDist) {
+              bestDist = dist;
+              best = i;
+            }
+          });
+          return best;
+        }
+
+        function onRailScroll() {
+          if (!isJourneyMobile()) return;
+          setActive(nearestStopIndex());
+        }
+
+        var stopRevealObs = new IntersectionObserver(
+          function (entries) {
+            entries.forEach(function (entry) {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("animate-in");
+                stopRevealObs.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.15, rootMargin: "0px 8% 0px 0px" }
+        );
+
+        function bindDesktopActive() {
+          if (stopActiveObs) {
+            stopActiveObs.disconnect();
+            stopActiveObs = null;
+          }
+          if (isJourneyMobile()) return;
+
+          stopActiveObs = new IntersectionObserver(
+            function (entries) {
+              var visible = entries
+                .filter(function (e) { return e.isIntersecting; })
+                .sort(function (a, b) { return b.intersectionRatio - a.intersectionRatio; });
+              if (visible.length) {
+                var idx = Array.prototype.indexOf.call(stops, visible[0].target);
+                if (idx !== -1) setActive(idx);
+              }
+            },
+            { threshold: [0.35, 0.6, 0.85], rootMargin: "-30% 0px -40% 0px" }
+          );
+          stops.forEach(function (stop) {
+            stopActiveObs.observe(stop);
+          });
+        }
+
+        stops.forEach(function (stop, i) {
+          stop.style.transitionDelay = i * 0.04 + "s";
+          stopRevealObs.observe(stop);
+          stop.addEventListener("mouseenter", function () {
+            if (!isJourneyMobile()) setActive(i);
+          });
+          stop.addEventListener("focusin", function () { setActive(i); });
+          stop.addEventListener("click", function () {
+            if (!isJourneyMobile() || !rail) return;
+            stop.scrollIntoView({
+              behavior: reduceMotion ? "auto" : "smooth",
+              inline: "start",
+              block: "nearest"
+            });
+            setActive(i);
+          });
+        });
+
+        if (rail) {
+          rail.addEventListener("scroll", onRailScroll, { passive: true });
+        }
+
+        bindDesktopActive();
+        if (mobileMq.addEventListener) {
+          mobileMq.addEventListener("change", function () {
+            bindDesktopActive();
+            if (isJourneyMobile()) onRailScroll();
+          });
+        } else if (mobileMq.addListener) {
+          mobileMq.addListener(function () {
+            bindDesktopActive();
+            if (isJourneyMobile()) onRailScroll();
+          });
+        }
+
+        setActive(0);
+        if (isJourneyMobile()) onRailScroll();
+      })();
+
+      /* Product card scroll targets */
+      document.querySelectorAll("[data-scroll-to]").forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          var target = document.getElementById(btn.getAttribute("data-scroll-to"));
+          if (target) target.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth" });
+        });
+      });
+
+      /* Clients section color-in */
+      if (clientsSection) {
+        var clientsObs = new IntersectionObserver(
+          function (entries) {
+            entries.forEach(function (entry) {
+              if (entry.isIntersecting) {
+                clientsSection.classList.add("clients-section-active");
+                clientsObs.unobserve(clientsSection);
+              }
+            });
+          },
+          { threshold: 0.2 }
+        );
+        clientsObs.observe(clientsSection);
+      }
+
+      /* Metrics counters */
+      function animateCounters() {
+        if (metricsDone) return;
+        metricsDone = true;
+        var values = metricsSection.querySelectorAll(".metric-value");
+        values.forEach(function (el) {
+          var target = parseInt(el.getAttribute("data-count"), 10);
+          var suffix = el.getAttribute("data-suffix") || "";
+          var duration = 1800;
+          var start = null;
+
+          function step(ts) {
+            if (!start) start = ts;
+            var progress = Math.min((ts - start) / duration, 1);
+            var eased = 1 - Math.pow(1 - progress, 3);
+            var current = Math.floor(eased * target);
+            el.textContent = current + suffix;
+            if (progress < 1) requestAnimationFrame(step);
+            else el.textContent = target + suffix;
+          }
+
+          if (reduceMotion) {
+            el.textContent = target + suffix;
+          } else {
+            requestAnimationFrame(step);
+          }
+        });
+      }
+
+      if (metricsSection) {
+        var metricsObs = new IntersectionObserver(
+          function (entries) {
+            entries.forEach(function (entry) {
+              if (entry.isIntersecting) {
+                animateCounters();
+                metricsObs.unobserve(metricsSection);
+              }
+            });
+          },
+          { threshold: 0.4 }
+        );
+        metricsObs.observe(metricsSection);
+      }
+
+      /* Client marquee */
+      function setupMarquee() {
+        if (!clientsTrack || reduceMotion) return;
+        var clone = clientsTrack.cloneNode(true);
+        clone.setAttribute("aria-hidden", "true");
+        clientsTrack.parentNode.appendChild(clone);
+        /* Duplicate content inside same track for simpler transform */
+        clientsTrack.parentNode.removeChild(clone);
+        var html = clientsTrack.innerHTML;
+        clientsTrack.innerHTML = html + html;
+        requestAnimationFrame(function () {
+          marqueeHalf = clientsTrack.scrollWidth / 2;
+          marqueeReady = marqueeHalf > 0;
+          if (marqueeReady) requestAnimationFrame(marqueeLoop);
+        });
+      }
+
+      function marqueeLoop() {
+        if (!marqueeReady) return;
+        marqueeOffset += 0.35;
+        if (marqueeOffset >= marqueeHalf) marqueeOffset = 0;
+        clientsTrack.style.transform = "translate3d(" + -marqueeOffset + "px, 0, 0)";
+        requestAnimationFrame(marqueeLoop);
+      }
+
+      setupMarquee();
+
+      /* Scroll: hero parallax + header + back top + offer rail */
+      function onScrollFrame() {
+        var y = window.pageYOffset || document.documentElement.scrollTop;
+
+        if (header) header.classList.toggle("scrolled", y > 40);
+        if (backTop) backTop.classList.toggle("visible", y > 500);
+
+        if (!reduceMotion && heroSection && heroContent) {
+          var heroH = heroSection.offsetHeight || window.innerHeight;
+          var progress = Math.min(Math.max(y / heroH, 0), 1);
+
+          if (heroMediaImg) {
+            heroMediaImg.style.transform = "scale(" + (1 + progress * 0.2) + ") translate3d(0, " + progress * 36 + "px, 0)";
+          }
+          if (heroBg) {
+            heroBg.style.opacity = String(Math.max(1 - progress * 0.45, 0.4));
+          }
+          heroContent.style.transform = "translate3d(0, " + progress * -70 + "px, 0)";
+          heroContent.style.opacity = String(Math.max(1 - progress * 1.15, 0));
+        }
+
+        offerSyncFromScroll();
+        ticking = false;
+      }
+
+      (function offerLerpLoop() {
+        offerTick();
+        requestAnimationFrame(offerLerpLoop);
+      })();
+
+      function onScroll() {
+        if (!ticking) {
+          ticking = true;
+          requestAnimationFrame(onScrollFrame);
+        }
+      }
+
+      window.addEventListener("scroll", onScroll, { passive: true });
+      onScrollFrame();
+
+      if (backTop) {
+        backTop.addEventListener("click", function () {
+          window.scrollTo({ top: 0, behavior: reduceMotion ? "auto" : "smooth" });
+        });
+      }
+
+      /* Contact form: prevent default (no backend) */
+      var form = document.getElementById("contactForm");
+      if (form) {
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
